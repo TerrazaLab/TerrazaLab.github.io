@@ -1,136 +1,198 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thetforever - Reclutamiento</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('https://i.imgur.com/OBsrvW0.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            position: relative;
-            color: #ffffff;
-        }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: -1;
-        }
-        header {
-            background-color: rgba(55, 47, 71, 0.9);
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px 20px;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h1, p, ul, li {
-            color: #ffffff;
-        }
-        h1 {
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        .btn {
-            background-color: rgba(74, 65, 96, 0.85);
-            color: #ffffff;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            border: 2px solid #69597E;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            display: inline-block;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .btn:hover {
-            background-color: rgba(55, 47, 71, 0.85);
-            border-color: #ffffff;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thetforever - Facción de Thetford</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-image: url('https://i.imgur.com/OBsrvW0.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        line-height: 1.7;
+        position: relative;
+        color: #ffffff;
+    }
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+    }
+    header {
+        background-color: rgba(55, 47, 71, 0.9);
+        padding: 10px 0;
+        text-align: center;
+        position: relative;
+    }
+    h1 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    section {
+        padding: 20px 20px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    p, ul, li {
+        color: #fff;
+        margin: 0 0 1em 0;
+    }
+    p {
+        font-size: 1.2em;
+        text-align: left;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0;
+    }
+    li {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+    .btn {
+        background-color: rgba(74, 65, 96, 0.85);
+        color: #ffffff;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        border: 2px solid #69597E;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        display: inline-block;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .btn:hover {
+        background-color: rgba(55, 47, 71, 0.85);
+        border-color: #ffffff;
+    }
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+    }
+    @media (min-width: 768px) {
         .cards-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-top: 10px;
+            flex-direction: row;
+            justify-content: center;
         }
         .card {
-            background-color: rgba(55, 47, 71, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            width: 85%;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            min-height: 400px;
+            width: 45%;
+            min-height: 450px;
         }
-        @media (min-width: 768px) {
-            .cards-container {
-                flex-direction: row;
-                justify-content: center;
-            }
-            .card {
-                width: 45%;
-            }
+        .about-card {
+            width: 95% !important;
         }
-        .card h2 {
-            font-size: 1.8em;
-            text-align: left;
-            margin-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 0;
-        }
-        li {
-            font-size: 1.3em;
-            margin: 10px 0;
-        }
-    </style>
+    }
+    .card {
+        background-color: rgba(55, 47, 71, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        width: 85%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        min-height: 400px;
+        box-sizing: border-box;
+    }
+    .card h2 {
+        font-size: 1.8em;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    .about-card {
+        background-color: rgba(35, 25, 55, 0.95);
+        border: 3px solid #7B56A0;
+        width: 85%;
+        min-height: auto;
+        margin-bottom: 20px;
+        padding: 25px 30px;
+        border-radius: 12px;
+        font-size: 1.25em;
+        line-height: 1.5;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .about-card h2 {
+        margin-bottom: 15px;
+        color: #D6B8FF;
+    }
+    .highlight-title {
+        display: block;
+        font-weight: bold;
+        font-size: 1.3em;
+        margin: 30px 0 15px 0;
+        text-align: center;
+        color: #E3CFFF;
+    }
+    /* Language selector styles */
+    .lang-selector {
+        position: absolute;
+        top: 25px;
+        right: 70px;
+        user-select: none;
+        cursor: pointer;
+    }
+    .lang-flag {
+        font-size: 28px;
+        margin-left: 10px;
+        transition: transform 0.2s;
+    }
+    .lang-flag:hover {
+        transform: scale(1.2);
+    }
+</style>
 </head>
 <body>
     <header>
-        <h1>Thetforever Recluta! 🚀</h1>
+        <h1 id="title">Thetforever - Facción de Thetford</h1>
+        <div class="lang-selector" aria-label="Seleccionar idioma">
+            <span class="lang-flag" data-lang="es" title="Español">🇪🇸</span>
+            <span class="lang-flag" data-lang="pt" title="Português">🇧🇷</span>
+            <span class="lang-flag" data-lang="en" title="English">🇺🇸</span>
+        </div>
     </header>
 
     <section>
-        
-        <section>
-            <a href="https://discord.gg/JDGYaeS5uD" class="btn">🔗 Únete a nuestro Discord</a>
-        </section>
-        
-        
+        <a href="https://discord.gg/JDGYaeS5uD" class="btn" id="discord-button">🔗 Únete a nuestro Discord</a>
+
+        <div class="about-card" id="about-us">
+            <h2>Sobre Nosotros ⚔️</h2>
+            <p><strong>Thetforever</strong> es un gremio activo de Albion Online con base en la facción de <strong>Thetford</strong>, enfocado en contenido PvE y PvP, guerras de facciones, y también en zona negra.</p>
+            <p>Participamos todos los días en capturas y defensa de outposts y todo lo que tenga que ver con la guerra de facciones.</p>
+            
+            <span class="highlight-title">¿Querés sumarte al contenido de facción?</span>
+            <p>Unite a nuestro <strong>Discord de la comunidad de Thetford</strong>, el punto de encuentro para todos los que pelean por la facción.<br>
+            Ahí coordinamos actividades, compartimos builds y nos organizamos entre jugadores y gremios.</p>
+            
+            <span class="highlight-title">Además...</span>
+            <p>Tenemos una <strong>sección exclusiva para Thetforever</strong>, por si te interesa unirte al gremio y llevar el compromiso un paso más allá.</p>
+        </div>
+
         <div class="cards-container">
-            <div class="card">
+            <div class="card" id="offer-card">
                 <h2>¿Qué ofrecemos? 🔥</h2>
                 <ul>
-                    <li>✅ HO en Widemoor Woods (Thetford) </li>
-                    <li>✅ Mazmorras grupales y Estática </li>                   
-                    <li>✅ Outpost zona roja y zona negra </li>
-                    <li>✅ Abyssal Depths 3v3 y 2v2 </li>
-                    <li>✅ Hellgates 5v5 </li>
-                    <li>✅ Sin requisitos ni impuestos </li>
+                    <li>✅ HO en Widemoor Woods (Thetford)</li>
+                    <li>✅ Mazmorras grupales y Estática</li>                   
+                    <li>✅ Outpost zona roja y zona negra</li>
+                    <li>✅ Abyssal Depths 3v3 y 2v2</li>
+                    <li>✅ Hellgates 5v5</li>
+                    <li>✅ Sin requisitos ni impuestos</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="card" id="search-card">
                 <h2>¿Qué buscamos? 🤝</h2>
                 <ul>
                     <li>🔹 Jugadores activos</li>
@@ -143,7 +205,152 @@
     </section>
 
     <section>
-        <p><strong>¡Únete a nosotros en Albion Online! 🎮 Si buscas un gremio activo donde puedas progresar y disfrutar del contenido del juego, este es tu lugar. </strong></p>
+        <p id="join-message"><strong>¡Únete a nosotros en Albion Online! 🎮 Si buscas un gremio activo donde puedas progresar y disfrutar del contenido del juego, este es tu lugar.</strong></p>
     </section>
+
+<script>
+    // Contenido en los 3 idiomas
+    const content = {
+        es: {
+            title: "Thetforever - Facción de Thetford",
+            discordButton: "🔗 Únete a nuestro Discord",
+            aboutTitle: "Sobre Nosotros ⚔️",
+            aboutTexts: [
+                "<strong>Thetforever</strong> es un gremio activo de Albion Online con base en la facción de <strong>Thetford</strong>, enfocado en contenido PvE y PvP, guerras de facciones, y también en zona negra.",
+                "Participamos todos los días en capturas y defensa de outposts y todo lo que tenga que ver con la guerra de facciones."
+            ],
+            factionTitle: "¿Querés sumarte al contenido de facción?",
+            factionText: "Unite a nuestro <strong>Discord de la comunidad de Thetford</strong>, el punto de encuentro para todos los que pelean por la facción.<br>Ahí coordinamos actividades, compartimos builds y nos organizamos entre jugadores y gremios.",
+            extraTitle: "Además...",
+            extraText: "Tenemos una <strong>sección exclusiva para Thetforever</strong>, por si te interesa unirte al gremio y llevar el compromiso un paso más allá.",
+            offerTitle: "¿Qué ofrecemos? 🔥",
+            offerList: [
+                "✅ HO en Widemoor Woods (Thetford)",
+                "✅ Mazmorras grupales y Estática",
+                "✅ Outpost zona roja y zona negra",
+                "✅ Abyssal Depths 3v3 y 2v2",
+                "✅ Hellgates 5v5",
+                "✅ Sin requisitos ni impuestos"
+            ],
+            searchTitle: "¿Qué buscamos? 🤝",
+            searchList: [
+                "🔹 Jugadores activos",
+                "🔹 Que usen Discord",
+                "🔹 Que no sean tóxicos",
+                "🔹 Que no sean ego players"
+            ],
+            joinMessage: "¡Únete a nosotros en Albion Online! 🎮 Si buscas un gremio activo donde puedas progresar y disfrutar del contenido del juego, este es tu lugar."
+        },
+        pt: {
+            title: "Thetforever - Facção de Thetford",
+            discordButton: "🔗 Junte-se ao nosso Discord",
+            aboutTitle: "Sobre Nós ⚔️",
+            aboutTexts: [
+                "<strong>Thetforever</strong> é um clã ativo em Albion Online baseado na facção de <strong>Thetford</strong>, focado em conteúdo PvE e PvP, guerras de facções e também na zona negra.",
+                "Participamos todos os dias de capturas e defesas de outposts e tudo que tiver a ver com a guerra de facções."
+            ],
+            factionTitle: "Quer entrar no conteúdo de facção?",
+            factionText: "Junte-se ao nosso <strong>Discord da comunidade de Thetford</strong>, ponto de encontro para todos que lutam pela facção.<br>Aqui coordenamos atividades, compartilhamos builds e nos organizamos entre jogadores e clãs.",
+            extraTitle: "Além disso...",
+            extraText: "Temos uma <strong>seção exclusiva para Thetforever</strong>, caso queira se juntar ao clã e levar o compromisso a um nível maior.",
+            offerTitle: "O que oferecemos? 🔥",
+            offerList: [
+                "✅ HO em Widemoor Woods (Thetford)",
+                "✅ Masmorras em grupo e Estática",
+                "✅ Outpost em zona vermelha e zona negra",
+                "✅ Abyssal Depths 3v3 e 2v2",
+                "✅ Hellgates 5v5",
+                "✅ Sem requisitos ou taxas"
+            ],
+            searchTitle: "O que procuramos? 🤝",
+            searchList: [
+                "🔹 Jogadores ativos",
+                "🔹 Que usem Discord",
+                "🔹 Que não sejam tóxicos",
+                "🔹 Que não sejam egoístas"
+            ],
+            joinMessage: "Junte-se a nós em Albion Online! 🎮 Se você busca um clã ativo onde possa progredir e curtir o conteúdo do jogo, este é o lugar."
+        },
+        en: {
+            title: "Thetforever - Thetford Faction",
+            discordButton: "🔗 Join our Discord",
+            aboutTitle: "About Us ⚔️",
+            aboutTexts: [
+                "<strong>Thetforever</strong> is an active guild in Albion Online based in the <strong>Thetford</strong> faction, focused on PvE and PvP content, faction wars, and also black zone.",
+                "We participate daily in capturing and defending outposts and everything related to faction war."
+            ],
+            factionTitle: "Want to join faction content?",
+            factionText: "Join our <strong>Thetford community Discord</strong>, the meeting point for all who fight for the faction.<br>Here we coordinate activities, share builds, and organize between players and guilds.",
+            extraTitle: "Also...",
+            extraText: "We have an <strong>exclusive section for Thetforever</strong>, if you're interested in joining the guild and taking commitment one step further.",
+            offerTitle: "What we offer 🔥",
+            offerList: [
+                "✅ HO in Widemoor Woods (Thetford)",
+                "✅ Group dungeons and Static",
+                "✅ Outpost red and black zone",
+                "✅ Abyssal Depths 3v3 and 2v2",
+                "✅ Hellgates 5v5",
+                "✅ No requirements or taxes"
+            ],
+            searchTitle: "What we're looking for 🤝",
+            searchList: [
+                "🔹 Active players",
+                "🔹 Discord users",
+                "🔹 Non-toxic players",
+                "🔹 No ego players"
+            ],
+            joinMessage: "Join us in Albion Online! 🎮 If you are looking for an active guild where you can progress and enjoy the game content, this is your place."
+        }
+    };
+
+    // Función para actualizar texto segun idioma seleccionado
+    function updateLanguage(lang) {
+        const c = content[lang];
+        document.documentElement.lang = lang;
+        document.getElementById('title').textContent = c.title;
+        document.getElementById('discord-button').textContent = c.discordButton;
+
+        const aboutCard = document.getElementById('about-us');
+        aboutCard.querySelector('h2').textContent = c.aboutTitle;
+        // Los primeros 2 párrafos (aboutTexts)
+        const pEls = aboutCard.querySelectorAll('p');
+        pEls[0].innerHTML = c.aboutTexts[0];
+        pEls[1].innerHTML = c.aboutTexts[1];
+        // Subtítulos destacados
+        const spans = aboutCard.querySelectorAll('.highlight-title');
+        spans[0].textContent = c.factionTitle;
+        spans[1].textContent = c.extraTitle;
+        // Párrafos debajo subtítulos
+        pEls[2].innerHTML = c.factionText;
+        pEls[3].innerHTML = c.extraText;
+
+        const offerCard = document.getElementById('offer-card');
+        offerCard.querySelector('h2').textContent = c.offerTitle;
+        const offerList = offerCard.querySelectorAll('li');
+        c.offerList.forEach((text, i) => {
+            if (offerList[i]) offerList[i].textContent = text;
+        });
+
+        const searchCard = document.getElementById('search-card');
+        searchCard.querySelector('h2').textContent = c.searchTitle;
+        const searchList = searchCard.querySelectorAll('li');
+        c.searchList.forEach((text, i) => {
+            if (searchList[i]) searchList[i].textContent = text;
+        });
+
+        document.getElementById('join-message').innerHTML = `<strong>${c.joinMessage}</strong>`;
+    }
+
+    // Evento para cambio de idioma
+    document.querySelectorAll('.lang-flag').forEach(flag => {
+        flag.addEventListener('click', () => {
+            const lang = flag.getAttribute('data-lang');
+            updateLanguage(lang);
+        });
+    });
+
+    // Inicializar con Español por defecto
+    updateLanguage('es');
+</script>
 </body>
 </html>
