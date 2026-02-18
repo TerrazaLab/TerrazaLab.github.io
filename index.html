@@ -18,10 +18,10 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 33px auto;
-      background: rgba(0,0,0,0.75);
-      padding: 80px 50px;
+      background: rgba(0,0,0,0.80);
+      padding: 70px 50px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 30px rgba(0,0,0,0.7);
@@ -52,8 +52,14 @@
     h1 {
       font-size: 3.5rem;
       margin-top: 0px;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       color: #b266ff;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 40px;
+      color: #ccc;
     }
 
     .cta a {
@@ -63,29 +69,38 @@
       padding: 18px 40px;
       border-radius: 12px;
       text-decoration: none;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: bold;
+      margin-bottom: 50px;
     }
 
-    .benefits ul {
+    .section {
+      text-align: left;
+      margin: 40px auto;
+      max-width: 800px;
+    }
+
+    .section h2 {
+      color: #b266ff;
+      margin-bottom: 15px;
+    }
+
+    .section ul {
       list-style: none;
       padding: 0;
-      max-width: 650px;
-      margin: 40px auto;
-      text-align: left;
     }
 
-    .benefits li {
-      margin: 15px 0;
-      font-size: 1.4rem;
+    .section li {
+      margin: 10px 0;
+      font-size: 1.1rem;
     }
+
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <!-- Selector de idioma -->
     <div class="lang-switch">
       <button onclick="changeLanguage('es')">ES</button>
       <button onclick="changeLanguage('pt')">PT-BR</button>
@@ -95,6 +110,7 @@
     <img src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" alt="Thetforever">
 
     <h1>THETFOREVER</h1>
+    <p class="subtitle" id="subtitle"></p>
 
     <div class="cta">
       <a id="cta-text" href="https://discord.gg/uYH9yWtmzF" target="_blank">
@@ -102,72 +118,157 @@
       </a>
     </div>
 
-    <section class="benefits">
-      <ul id="benefits-list"></ul>
-    </section>
+    <div class="section">
+      <h2 id="faction-title"></h2>
+      <ul id="faction-list"></ul>
+    </div>
+
+    <div class="section">
+      <h2 id="blackzone-title"></h2>
+      <ul id="blackzone-list"></ul>
+    </div>
+
+    <div class="section">
+      <h2 id="progress-title"></h2>
+      <ul id="progress-list"></ul>
+    </div>
 
   </div>
 
-  <script>
-    const translations = {
-      es: {
-        cta: "🚀 ÚNETE A NUESTRO DISCORD",
-        benefits: [
-          "💣  Thetford Bomb Squad",
-          "🗺️  Roaming",
-          "⚔️  Gank"
-        ]
-      },
-      pt: {
-        cta: "🚀 ENTRE NO NOSSO DISCORD",
-        benefits: [
-          "💣  Thetford Bomb Squad",
-          "🗺️  Roaming",
-          "⚔️  Gank"
-        ]
-      },
-      en: {
-        cta: "🚀 JOIN OUR DISCORD",
-        benefits: [
-          "💣  Thetford Bomb Squad",
-          "🗺️  Roaming",
-          "⚔️  Gank"
-        ]
-      }
-    };
+<script>
+const translations = {
+  es: {
+    subtitle: "Comunidad activa de Guerra de Facciones y Zona Negra en Albion Online",
+    cta: "🚀 ÚNETE A NUESTRO DISCORD",
 
-    function applyLanguage(lang) {
-      document.getElementById("cta-text").innerText = translations[lang].cta;
+    factionTitle: "⚔️ Guerra de Facciones - Thetford",
+    faction: [
+      "Captura de Outposts",
+      "Asedios y Campamentos de Facción",
+      "Zona Amarilla y Zona Roja",
+      "Comunidad abierta (no es obligatorio estar en el gremio)"
+    ],
 
-      const list = document.getElementById("benefits-list");
-      list.innerHTML = "";
-      translations[lang].benefits.forEach(text => {
-        const li = document.createElement("li");
-        li.textContent = text;
-        list.appendChild(li);
-      });
+    blackzoneTitle: "⚫ Zona Negra - Contenido Competitivo",
+    blackzone: [
+      "Escondite en Zona Negra",
+      "Roaming Open World",
+      "Criaturas de Cristal y Contrabandistas",
+      "Recolección y pesca de alto riesgo",
+      "Captura de Outposts"
+    ],
 
-      document.documentElement.lang = lang;
-      localStorage.setItem("language", lang);
-    }
+    progressTitle: "📈 Progreso y Fama",
+    progress: [
+      "Estáticas en Zona Amarilla y Zona Negra",
+      "Mazmorras Grupales",
+      "Farmeo eficiente de fama en party"
+    ]
+  },
 
-    function detectLanguage() {
-      const savedLang = localStorage.getItem("language");
-      if (savedLang && translations[savedLang]) return savedLang;
+  pt: {
+    subtitle: "Comunidade ativa de Guerra de Facção e Zona Negra no Albion Online",
+    cta: "🚀 ENTRE NO NOSSO DISCORD",
 
-      const browserLang = navigator.language.slice(0, 2);
-      if (translations[browserLang]) return browserLang;
+    factionTitle: "⚔️ Guerra de Facção - Thetford",
+    faction: [
+      "Captura de Outposts",
+      "Cerco e Acampamentos de Facção",
+      "Zona Amarela e Zona Vermelha",
+      "Comunidade aberta (não é obrigatório estar na guilda)"
+    ],
 
-      return "en"; // fallback
-    }
+    blackzoneTitle: "⚫ Zona Negra - Conteúdo Competitivo",
+    blackzone: [
+      "Hideout na Zona Negra",
+      "Roaming Open World",
+      "Criaturas de Cristal e Contrabandistas",
+      "Coleta e pesca de alto risco",
+      "Captura de Outposts"
+    ],
 
-    function changeLanguage(lang) {
-      applyLanguage(lang);
-    }
+    progressTitle: "📈 Progresso e Fama",
+    progress: [
+      "Estáticas Zona Amarela e Negra",
+      "Masamorras em grupo",
+      "Farm eficiente de fama em party"
+    ]
+  },
 
-    // Inicialización
-    applyLanguage(detectLanguage());
-  </script>
+  en: {
+    subtitle: "Active Faction Warfare and Black Zone Community in Albion Online",
+    cta: "🚀 JOIN OUR DISCORD",
+
+    factionTitle: "⚔️ Faction Warfare - Thetford",
+    faction: [
+      "Outpost Captures",
+      "Faction Sieges and Camps",
+      "Yellow Zone and Red Zone",
+      "Open community (guild membership not required)"
+    ],
+
+    blackzoneTitle: "⚫ Black Zone - Competitive Content",
+    blackzone: [
+      "Black Zone Hideout",
+      "Open World Roaming",
+      "Crystal Creatures and Smugglers",
+      "High-risk Gathering and Fishing",
+      "Outpost Captures"
+    ],
+
+    progressTitle: "📈 Progress and Fame",
+    progress: [
+      "Static Dungeons (Yellow & Black Zone)",
+      "Group Dungeons",
+      "Efficient Fame Farming in Party"
+    ]
+  }
+};
+
+function applyLanguage(lang) {
+  const t = translations[lang];
+
+  document.getElementById("subtitle").innerText = t.subtitle;
+  document.getElementById("cta-text").innerText = t.cta;
+
+  document.getElementById("faction-title").innerText = t.factionTitle;
+  document.getElementById("blackzone-title").innerText = t.blackzoneTitle;
+  document.getElementById("progress-title").innerText = t.progressTitle;
+
+  populateList("faction-list", t.faction);
+  populateList("blackzone-list", t.blackzone);
+  populateList("progress-list", t.progress);
+
+  document.documentElement.lang = lang;
+  localStorage.setItem("language", lang);
+}
+
+function populateList(id, items) {
+  const list = document.getElementById(id);
+  list.innerHTML = "";
+  items.forEach(text => {
+    const li = document.createElement("li");
+    li.textContent = "• " + text;
+    list.appendChild(li);
+  });
+}
+
+function detectLanguage() {
+  const savedLang = localStorage.getItem("language");
+  if (savedLang && translations[savedLang]) return savedLang;
+
+  const browserLang = navigator.language.slice(0, 2);
+  if (translations[browserLang]) return browserLang;
+
+  return "en";
+}
+
+function changeLanguage(lang) {
+  applyLanguage(lang);
+}
+
+applyLanguage(detectLanguage());
+</script>
 
 </body>
 </html>
