@@ -25,40 +25,17 @@
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 0 30px rgba(0,0,0,0.7);
-      position: relative;
-    }
-
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-    }
-
-    .lang-switch button {
-      background: #7289da;
-      border: none;
-      color: white;
-      padding: 6px 10px;
-      margin-left: 5px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .lang-switch button:hover {
-      background: #5b6eae;
     }
 
     h1 {
       font-size: 3.5rem;
-      margin-top: 0px;
       margin-bottom: 20px;
       color: #b266ff;
     }
 
     .subtitle {
       font-size: 1.3rem;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       color: #ccc;
     }
 
@@ -71,13 +48,38 @@
       text-decoration: none;
       font-size: 1.4rem;
       font-weight: bold;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
 
-    .section {
-      text-align: left;
-      margin: 40px auto;
+    .social {
+      margin-bottom: 40px;
+    }
+
+    .social a {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 1.3rem;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      background: #b266ff;
+      transition: 0.3s;
+    }
+
+    .social a:hover {
+      background: #8a3dff;
+      transform: scale(1.05);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
       max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
     }
 
     .section h2 {
@@ -95,180 +97,62 @@
       font-size: 1.1rem;
     }
 
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <div class="lang-switch">
-      <button onclick="changeLanguage('es')">ES</button>
-      <button onclick="changeLanguage('pt')">PT-BR</button>
-      <button onclick="changeLanguage('en')">EN</button>
-    </div>
-
     <img src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" alt="Thetforever">
 
     <h1>THETFOREVER</h1>
-    <p class="subtitle" id="subtitle"></p>
+    <p class="subtitle">
+      Gremio activo en zona negra y guerra de facciones
+    </p>
 
     <div class="cta">
-      <a id="cta-text" href="https://discord.gg/uYH9yWtmzF" target="_blank">
-        🚀 JOIN OUR DISCORD
+      <a href="https://discord.gg/uYH9yWtmzF" target="_blank">
+        🚀 ÚNETE A NUESTRO DISCORD
       </a>
     </div>
 
-    <div class="section">
-      <h2 id="faction-title"></h2>
-      <ul id="faction-list"></ul>
+    <div class="social">
+      <a href="https://www.youtube.com/@Thetforever/shorts" target="_blank">📺 YouTube</a>
+      <a href="https://www.tiktok.com/@thetforever" target="_blank">🎵 TikTok</a>
     </div>
 
-    <div class="section">
-      <h2 id="blackzone-title"></h2>
-      <ul id="blackzone-list"></ul>
-    </div>
+    <div class="grid">
 
-    <div class="section">
-      <h2 id="progress-title"></h2>
-      <ul id="progress-list"></ul>
+      <div class="section">
+        <h2>⚔️ Actividades</h2>
+        <ul>
+          <li>• Captura de Outposts</li>
+          <li>• Guerra de Facciones Thetford</li>
+          <li>• Criaturas de Cristal y Contrabandistas</li>
+          <li>• Gankeo Roaming (pequeña escala)</li>
+          <li>• Mazmorras Grupales</li>
+          <li>• AVAs</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>📈 Progreso</h2>
+        <ul>
+          <li>• Actividades Full Split</li>
+          <li>• Reequips T8</li>
+          <li>• CTA 02:00 UTC (no obligatoria)</li>
+          <li>• Sin impuestos</li>
+        </ul>
+      </div>
+
     </div>
 
   </div>
-
-<script>
-const translations = {
-  es: {
-    subtitle: "Comunidad activa de Guerra de Facciones y Zona Negra en Albion Online",
-    cta: "🚀 ÚNETE A NUESTRO DISCORD",
-
-    factionTitle: "⚔️ Guerra de Facciones - Thetford",
-    faction: [
-      "Captura de Outposts",
-      "Asedios y Campamentos de Facción",
-      "Zona Amarilla y Zona Roja",
-      "Comunidad abierta (no es obligatorio estar en el gremio)"
-    ],
-
-    blackzoneTitle: "⚫ Zona Negra - Contenido Competitivo",
-    blackzone: [
-      "Escondite en Zona Negra",
-      "Roaming Open World",
-      "Criaturas de Cristal y Contrabandistas",
-      "Recolección y pesca de alto riesgo",
-      "Captura de Outposts"
-    ],
-
-    progressTitle: "📈 Progreso y Fama",
-    progress: [
-      "Estáticas en Zona Amarilla y Zona Negra",
-      "Mazmorras Grupales",
-      "Farmeo eficiente de fama en party"
-    ]
-  },
-
-  pt: {
-    subtitle: "Comunidade ativa de Guerra de Facção e Zona Negra no Albion Online",
-    cta: "🚀 ENTRE NO NOSSO DISCORD",
-
-    factionTitle: "⚔️ Guerra de Facção - Thetford",
-    faction: [
-      "Captura de Outposts",
-      "Cerco e Acampamentos de Facção",
-      "Zona Amarela e Zona Vermelha",
-      "Comunidade aberta (não é obrigatório estar na guilda)"
-    ],
-
-    blackzoneTitle: "⚫ Zona Negra - Conteúdo Competitivo",
-    blackzone: [
-      "Hideout na Zona Negra",
-      "Roaming Open World",
-      "Criaturas de Cristal e Contrabandistas",
-      "Coleta e pesca de alto risco",
-      "Captura de Outposts"
-    ],
-
-    progressTitle: "📈 Progresso e Fama",
-    progress: [
-      "Estáticas Zona Amarela e Negra",
-      "Masamorras em grupo",
-      "Farm eficiente de fama em party"
-    ]
-  },
-
-  en: {
-    subtitle: "Active Faction Warfare and Black Zone Community in Albion Online",
-    cta: "🚀 JOIN OUR DISCORD",
-
-    factionTitle: "⚔️ Faction Warfare - Thetford",
-    faction: [
-      "Outpost Captures",
-      "Faction Sieges and Camps",
-      "Yellow Zone and Red Zone",
-      "Open community (guild membership not required)"
-    ],
-
-    blackzoneTitle: "⚫ Black Zone - Competitive Content",
-    blackzone: [
-      "Black Zone Hideout",
-      "Open World Roaming",
-      "Crystal Creatures and Smugglers",
-      "High-risk Gathering and Fishing",
-      "Outpost Captures"
-    ],
-
-    progressTitle: "📈 Progress and Fame",
-    progress: [
-      "Static Dungeons (Yellow & Black Zone)",
-      "Group Dungeons",
-      "Efficient Fame Farming in Party"
-    ]
-  }
-};
-
-function applyLanguage(lang) {
-  const t = translations[lang];
-
-  document.getElementById("subtitle").innerText = t.subtitle;
-  document.getElementById("cta-text").innerText = t.cta;
-
-  document.getElementById("faction-title").innerText = t.factionTitle;
-  document.getElementById("blackzone-title").innerText = t.blackzoneTitle;
-  document.getElementById("progress-title").innerText = t.progressTitle;
-
-  populateList("faction-list", t.faction);
-  populateList("blackzone-list", t.blackzone);
-  populateList("progress-list", t.progress);
-
-  document.documentElement.lang = lang;
-  localStorage.setItem("language", lang);
-}
-
-function populateList(id, items) {
-  const list = document.getElementById(id);
-  list.innerHTML = "";
-  items.forEach(text => {
-    const li = document.createElement("li");
-    li.textContent = "• " + text;
-    list.appendChild(li);
-  });
-}
-
-function detectLanguage() {
-  const savedLang = localStorage.getItem("language");
-  if (savedLang && translations[savedLang]) return savedLang;
-
-  const browserLang = navigator.language.slice(0, 2);
-  if (translations[browserLang]) return browserLang;
-
-  return "en";
-}
-
-function changeLanguage(lang) {
-  applyLanguage(lang);
-}
-
-applyLanguage(detectLanguage());
-</script>
-
 </body>
 </html>
