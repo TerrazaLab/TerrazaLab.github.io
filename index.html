@@ -3,156 +3,1779 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thetforever - Albion Online Guild</title>
-  <link rel="icon" href="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" type="image/png">
+
+  <title>THETFOREVER | Gank, Roaming & ZvZ | Albion Online</title>
+
+  <link rel="icon"
+    href="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png"
+    type="image/png">
 
   <style>
-    body {
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('https://i.imgur.com/OBsrvW0.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 33px auto;
-      background: rgba(0,0,0,0.80);
-      padding: 70px 50px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(0,0,0,0.7);
-    }
-
-    h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-      color: #b266ff;
-    }
-
-    .subtitle {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      color: #ccc;
-    }
-
-    .cta a {
-      display: inline-block;
-      background: #7289da;
-      color: white;
-      padding: 18px 40px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 30px;
-    }
-
-    .social {
-      margin-bottom: 40px;
-    }
-
-    .social a {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 25px;
-      font-size: 1.3rem;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      background: #b266ff;
-      transition: 0.3s;
-    }
-
-    .social a:hover {
-      background: #8a3dff;
-      transform: scale(1.05);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .section h2 {
-      color: #b266ff;
-      margin-bottom: 15px;
-    }
-
-    .section ul {
-      list-style: none;
       padding: 0;
     }
 
-    .section li {
-      margin: 10px 0;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background: #08040d;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          rgba(8, 3, 15, 0.45),
+          rgba(8, 3, 15, 0.92)
+        ),
+        url('https://i.imgur.com/OBsrvW0.jpeg');
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(150, 60, 255, 0.15),
+          transparent 45%
+        );
+
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .navbar {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 1000;
+
+      background:
+        rgba(6, 3, 10, 0.78);
+
+      backdrop-filter: blur(12px);
+
+      border-bottom:
+        1px solid
+        rgba(178,102,255,0.15);
+    }
+
+    .nav-container {
+      width: min(1150px, 92%);
+
+      margin: auto;
+
+      min-height: 65px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      color: #c47cff;
+
+      text-decoration: none;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+
       font-size: 1.1rem;
     }
 
-    @media (max-width: 768px) {
-      .grid {
+    .nav-links {
+      display: flex;
+
+      gap: 25px;
+
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #bcb4c4;
+
+      text-decoration: none;
+
+      font-size: 0.9rem;
+
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: #c47cff;
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .container {
+      width: min(1150px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      position: relative;
+
+      padding: 110px 0 145px;
+    }
+
+    .section-title {
+      text-align: center;
+
+      font-size: 2.5rem;
+
+      color: #c47cff;
+
+      margin-bottom: 15px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      text-shadow:
+        0 0 20px
+        rgba(178,102,255,0.25);
+    }
+
+    .section-subtitle {
+      text-align: center;
+
+      max-width: 750px;
+
+      margin: 0 auto 55px;
+
+      color: #aaa2b3;
+
+      font-size: 1.1rem;
+
+      line-height: 1.7;
+    }
+
+    /* =========================
+       SECTION SCROLL ARROW
+    ========================= */
+
+    .section-next {
+      position: absolute;
+
+      bottom: 30px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 7px;
+
+      color: #928999;
+
+      text-decoration: none;
+
+      font-size: 0.7rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      transition: 0.25s;
+
+      animation:
+        sectionFloat 2s
+        ease-in-out
+        infinite;
+    }
+
+    .section-next:hover {
+      color: #c47cff;
+    }
+
+    .section-next-arrow {
+      width: 40px;
+
+      height: 40px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(178,102,255,0.45);
+
+      background:
+        rgba(100,30,160,0.18);
+
+      color: #c47cff;
+
+      font-size: 1.45rem;
+
+      box-shadow:
+        0 0 20px
+        rgba(178,102,255,0.18);
+    }
+
+    @keyframes sectionFloat {
+
+      0%, 100% {
+        transform:
+          translateX(-50%)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateX(-50%)
+          translateY(7px);
+      }
+
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding:
+        110px 20px
+        120px;
+
+      background:
+        linear-gradient(
+          rgba(5, 2, 10, 0.30),
+          rgba(5, 2, 10, 0.82)
+        );
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .logo {
+      width: 145px;
+
+      height: 145px;
+
+      object-fit: contain;
+
+      margin-bottom: 20px;
+
+      filter:
+        drop-shadow(
+          0 0 20px
+          rgba(178,102,255,0.7)
+        );
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(3.5rem, 8vw, 6.5rem);
+
+      letter-spacing: 7px;
+
+      color: #c47cff;
+
+      line-height: 1;
+
+      margin-bottom: 20px;
+
+      text-shadow:
+        0 0 20px
+        rgba(178,102,255,0.5),
+
+        0 0 50px
+        rgba(110,30,200,0.25);
+    }
+
+    .hero-tagline {
+      font-size:
+        clamp(1.1rem, 2vw, 1.5rem);
+
+      color: #eee;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 780px;
+
+      margin: 0 auto 30px;
+
+      color: #c4bdca;
+
+      font-size: 1.15rem;
+
+      line-height: 1.8;
+    }
+
+    .hero-description strong {
+      color: #fff;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .buttons {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 17px 35px;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-weight: bold;
+
+      font-size: 1.05rem;
+
+      transition:
+        all 0.25s ease;
+    }
+
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          #7225e8,
+          #b266ff
+        );
+
+      color: #fff;
+
+      box-shadow:
+        0 0 25px
+        rgba(130,50,255,0.35);
+    }
+
+    .btn-primary:hover {
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 0 40px
+        rgba(178,102,255,0.6);
+    }
+
+    /* =========================
+       HERO SOCIAL
+    ========================= */
+
+    .hero-social {
+      margin-top: 28px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+    .hero-social-title {
+      width: 100%;
+
+      color: #85808b;
+
+      font-size: 0.8rem;
+
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 2px;
+    }
+
+    .social-btn {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 10px 18px;
+
+      border-radius: 9px;
+
+      color: #eee;
+
+      text-decoration: none;
+
+      font-size: 0.9rem;
+
+      font-weight: 600;
+
+      background:
+        rgba(255,255,255,0.055);
+
+      border:
+        1px solid
+        rgba(178,102,255,0.25);
+
+      transition:
+        all 0.25s ease;
+    }
+
+    .social-btn:hover {
+      background:
+        rgba(178,102,255,0.18);
+
+      border-color:
+        rgba(178,102,255,0.5);
+
+      transform:
+        translateY(-3px);
+
+      color: #fff;
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      background:
+        linear-gradient(
+          rgba(10,4,18,0.94),
+          rgba(10,4,18,0.97)
+        );
+
+      border-top:
+        1px solid
+        rgba(178,102,255,0.15);
+
+      border-bottom:
+        1px solid
+        rgba(178,102,255,0.15);
+    }
+
+    .intro-content {
+      max-width: 850px;
+
+      margin: auto;
+
+      text-align: center;
+    }
+
+    .intro-content h2 {
+      font-size: 2.4rem;
+
+      color: #fff;
+
+      margin-bottom: 25px;
+    }
+
+    .intro-content p {
+      color: #bdb5c5;
+
+      font-size: 1.15rem;
+
+      line-height: 1.9;
+    }
+
+    /* =========================
+       ACTIVITIES
+    ========================= */
+
+    .activities {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+    .card {
+      padding: 35px 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(178,102,255,0.12),
+          rgba(15,7,25,0.88)
+        );
+
+      border:
+        1px solid
+        rgba(178,102,255,0.2);
+
+      border-radius: 18px;
+
+      transition:
+        all 0.3s ease;
+    }
+
+    .card:hover {
+      transform:
+        translateY(-7px);
+
+      border-color:
+        rgba(178,102,255,0.55);
+
+      box-shadow:
+        0 15px 45px
+        rgba(0,0,0,0.4);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+
+      color: #c47cff;
+
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #aaa3b1;
+
+      line-height: 1.7;
+
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card li {
+      color: #d7d1dc;
+
+      margin: 10px 0;
+    }
+
+    .card li::before {
+      content: "✓";
+
+      color: #b266ff;
+
+      font-weight: bold;
+
+      margin-right: 9px;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section {
+      background:
+        linear-gradient(
+          rgba(12,4,22,0.95),
+          rgba(12,4,22,0.95)
+        );
+
+      border-top:
+        1px solid
+        rgba(178,102,255,0.15);
+
+      border-bottom:
+        1px solid
+        rgba(178,102,255,0.15);
+    }
+
+    .schedule {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+
+      max-width: 1000px;
+
+      margin: auto;
+    }
+
+    .cta-card {
+      text-align: center;
+
+      padding: 30px 15px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(123,44,255,0.22),
+          rgba(20,8,35,0.9)
+        );
+
+      border:
+        1px solid
+        rgba(178,102,255,0.3);
+
+      border-radius: 15px;
+
+      transition: 0.25s;
+    }
+
+    .cta-card:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(178,102,255,0.65);
+
+      box-shadow:
+        0 10px 35px
+        rgba(110,40,200,0.2);
+    }
+
+    .cta-time {
+      font-size: 2rem;
+
+      font-weight: bold;
+
+      color: #d095ff;
+
+      margin-bottom: 10px;
+    }
+
+    .cta-label {
+      color: #ddd;
+
+      font-size: 0.95rem;
+    }
+
+    .cta-note {
+      text-align: center;
+
+      margin-top: 25px;
+
+      color: #8f8796;
+
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       IMPROVEMENT
+    ========================= */
+
+    .improvement {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 25px;
+
+      max-width: 950px;
+
+      margin: auto;
+    }
+
+    .improvement-card {
+      padding: 40px 35px;
+
+      background:
+        rgba(15,7,25,0.85);
+
+      border:
+        1px solid
+        rgba(178,102,255,0.2);
+
+      border-radius: 18px;
+    }
+
+    .improvement-card h3 {
+      color: #c47cff;
+
+      font-size: 1.5rem;
+
+      margin-bottom: 18px;
+    }
+
+    .improvement-card p {
+      color: #aaa3b1;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       PHILOSOPHY
+    ========================= */
+
+    .philosophy {
+      text-align: center;
+
+      padding:
+        110px 20px
+        145px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(125,45,230,0.15),
+          transparent 60%
+        );
+    }
+
+    .philosophy h2 {
+      font-size:
+        clamp(2rem, 5vw, 3.5rem);
+
+      color: #fff;
+
+      margin-bottom: 20px;
+    }
+
+    .philosophy p {
+      max-width: 750px;
+
+      margin: auto;
+
+      color: #aaa3b1;
+
+      font-size: 1.2rem;
+
+      line-height: 1.8;
+    }
+
+    .quote {
+      margin-top: 35px;
+
+      font-size: 1.5rem;
+
+      font-weight: bold;
+
+      color: #c47cff;
+    }
+
+    /* =========================
+       REQUIREMENTS
+    ========================= */
+
+    .requirements {
+      max-width: 900px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 15px;
+    }
+
+    .requirement {
+      padding: 18px 20px;
+
+      background:
+        rgba(178,102,255,0.07);
+
+      border:
+        1px solid
+        rgba(178,102,255,0.15);
+
+      border-radius: 10px;
+
+      color: #d6d0da;
+    }
+
+    .requirement span {
+      color: #b266ff;
+
+      font-weight: bold;
+
+      margin-right: 8px;
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================= */
+
+    .final-cta {
+      position: relative;
+
+      text-align: center;
+
+      padding:
+        110px 20px
+        130px;
+
+      background:
+        linear-gradient(
+          rgba(40,10,65,0.35),
+          rgba(8,3,15,0.95)
+        );
+    }
+
+    .final-cta h2 {
+      font-size:
+        clamp(2.5rem, 6vw, 4rem);
+
+      color: #c47cff;
+
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      max-width: 700px;
+
+      margin: 0 auto 35px;
+
+      color: #b9b1c0;
+
+      font-size: 1.15rem;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+
+      padding: 30px;
+
+      color: #68616e;
+
+      font-size: 0.85rem;
+
+      background: #060308;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .activities {
         grid-template-columns: 1fr;
       }
+
+      .schedule {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .improvement {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .section {
+        padding:
+          75px 0
+          125px;
+      }
+
+      .hero {
+        padding:
+          100px 20px
+          115px;
+      }
+
+      .hero h1 {
+        letter-spacing: 3px;
+      }
+
+      .schedule {
+        grid-template-columns: 1fr;
+      }
+
+      .requirements {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+
+        max-width: 330px;
+      }
+
+      .section-next {
+        bottom: 20px;
+      }
+
+      .philosophy {
+        padding:
+          75px 20px
+          125px;
+      }
+
+      .final-cta {
+        padding:
+          80px 20px
+          115px;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
-  <div class="container">
 
-    <img src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" alt="Thetforever">
 
-    <h1>THETFOREVER</h1>
-    <p class="subtitle">
-      Gremio activo en zona negra y guerra de facciones
-    </p>
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-    <div class="cta">
-      <a href="https://discord.gg/uYH9yWtmzF" target="_blank">
-        🚀 ÚNETE A NUESTRO DISCORD
+  <nav class="navbar">
+
+    <div class="nav-container">
+
+      <a
+        href="#inicio"
+        class="nav-logo">
+
+        THETFOREVER
+
       </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="#contenido">
+            Contenido
+          </a>
+        </li>
+
+        <li>
+          <a href="#cta">
+            CTA
+          </a>
+        </li>
+
+        <li>
+          <a href="#mejora">
+            Mejora
+          </a>
+        </li>
+
+        <li>
+          <a href="#reclutamiento">
+            Reclutamiento
+          </a>
+        </li>
+
+      </ul>
+
     </div>
 
-    <div class="social">
-      <a href="https://www.youtube.com/@Thetforever/shorts" target="_blank">📺 YouTube</a>
-      <a href="https://www.tiktok.com/@thetforever" target="_blank">🎵 TikTok</a>
-    </div>
+  </nav>
 
-    <div class="grid">
 
-      <div class="section">
-        <h2>⚔️ Actividades</h2>
-        <ul>
-          <li>• Captura de Outposts</li>
-          <li>• Guerra de Facciones Thetford</li>
-          <li>• Criaturas de Cristal y Contrabandistas</li>
-          <li>• Gankeo Roaming (pequeña escala)</li>
-          <li>• Mazmorras Grupales</li>
-          <li>• AVAs</li>
-        </ul>
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section
+    class="hero"
+    id="inicio">
+
+    <div class="hero-content">
+
+
+      <img
+        class="logo"
+        src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png"
+        alt="THETFOREVER">
+
+
+      <h1>
+        THETFOREVER
+      </h1>
+
+
+      <div class="hero-tagline">
+
+        GANK • ROAMING • ZVZ • THETFORD
+
       </div>
 
-      <div class="section">
-        <h2>📈 Progreso</h2>
-        <ul>
-          <li>• Actividades Full Split</li>
-          <li>• Reequips T8</li>
-          <li>• CTA 02:00 UTC (no obligatoria)</li>
-          <li>• Sin impuestos</li>
-        </ul>
+
+      <p class="hero-description">
+
+        Gremio de <strong>Thetford</strong> con enfoque
+        <strong>semi competitivo</strong> en Albion Online.
+
+        <br><br>
+
+        Hacemos <strong>Roaming, Gank y ZvZ</strong>,
+        participamos en <strong>CTA con nuestra alianza</strong>
+        para pelear objetivos en Zona Negra y representamos
+        a <strong>Thetford</strong> en la Guerra de Facciones.
+
+      </p>
+
+
+      <div class="buttons">
+
+        <a
+          href="https://discord.gg/uYH9yWtmzF"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary">
+
+          ⚔️ ÚNETE A THETFOREVER
+
+        </a>
+
+      </div>
+
+
+      <!-- SOCIAL -->
+
+      <div class="hero-social">
+
+        <div class="hero-social-title">
+
+          MIRA NUESTRO CONTENIDO
+
+        </div>
+
+
+        <a
+          href="https://www.youtube.com/@Thetforever/shorts"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn">
+
+          📺 YouTube
+
+        </a>
+
+
+        <a
+          href="https://www.tiktok.com/@thetforever"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn">
+
+          🎵 TikTok
+
+        </a>
+
       </div>
 
     </div>
 
-  </div>
+
+    <!-- FIRST ARROW -->
+
+    <a
+      href="#intro"
+      class="section-next">
+
+      <span>
+        Descubre THETFOREVER
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section
+    class="section intro"
+    id="intro">
+
+    <div class="container">
+
+      <div class="intro-content">
+
+        <h2>
+          NO BUSCAMOS LLENAR EL GREMIO.
+        </h2>
+
+        <p>
+
+          Buscamos jugadores
+          <strong>serios, activos y con ganas de mejorar.</strong>
+
+          <br><br>
+
+          Nuestro objetivo es construir un grupo sólido
+          de jugadores que quieran disfrutar del PvP,
+          competir, aprender de sus errores y progresar juntos.
+
+          <br><br>
+
+          Tenemos un enfoque
+          <strong>semi competitivo</strong>:
+          queremos ganar, mejorar y hacer buen contenido
+          sin convertir Albion en un segundo trabajo.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#contenido"
+      class="section-next">
+
+      <span>
+        Nuestro contenido
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       CONTENT
+  ========================= -->
+
+  <section
+    class="section"
+    id="contenido">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        ⚔️ NUESTRO CONTENIDO
+      </h2>
+
+      <p class="section-subtitle">
+
+        Tres pilares principales que definen
+        el contenido de THETFOREVER.
+
+      </p>
+
+
+      <div class="activities">
+
+
+        <!-- GANK -->
+
+        <div class="card">
+
+          <div class="card-icon">
+            🩸
+          </div>
+
+          <h3>
+            ROAMING & GANK
+          </h3>
+
+          <p>
+
+            Salimos a la Zona Negra buscando peleas,
+            enemigos y oportunidades de kill.
+
+          </p>
+
+          <ul>
+
+            <li>Roaming</li>
+            <li>Gank organizado</li>
+            <li>Small Scale</li>
+            <li>Peleas PvP</li>
+            <li>Control de mapa</li>
+            <li>Toma de decisiones</li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- ZVZ -->
+
+        <div class="card">
+
+          <div class="card-icon">
+            💀
+          </div>
+
+          <h3>
+            ZVZ
+          </h3>
+
+          <p>
+
+            Participamos en CTA junto a nuestra alianza
+            para disputar objetivos y participar en
+            operaciones de gran escala.
+
+          </p>
+
+          <ul>
+
+            <li>CTA de la alianza</li>
+            <li>Pelea por objetivos</li>
+            <li>ZvZ en Zona Negra</li>
+            <li>Seguimiento de calls</li>
+            <li>Posicionamiento</li>
+            <li>Trabajo en equipo</li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- FACTION -->
+
+        <div class="card">
+
+          <div class="card-icon">
+            🟣
+          </div>
+
+          <h3>
+            GUERRA DE FACCIONES
+          </h3>
+
+          <p>
+
+            Representamos a Thetford y participamos
+            activamente en contenido faccionado.
+
+          </p>
+
+          <ul>
+
+            <li>Guerra de Facciones</li>
+            <li>Contenido faccionado</li>
+            <li>Peleas PvP</li>
+            <li>Captura de objetivos</li>
+            <li>Roaming faccionado</li>
+            <li>Representación de Thetford</li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#cta"
+      class="section-next">
+
+      <span>
+        Ver horarios de CTA
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section
+    class="section cta-section"
+    id="cta">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        🕐 HORARIOS DE CTA
+      </h2>
+
+      <p class="section-subtitle">
+
+        Nuestras ventanas principales para participar
+        junto a la alianza en peleas por objetivos
+        y contenido ZvZ en Zona Negra.
+
+      </p>
+
+
+      <div class="schedule">
+
+
+        <div class="cta-card">
+
+          <div class="cta-time">
+            20:00 UTC
+          </div>
+
+          <div class="cta-label">
+            ⚔️ CTA • Objetivos / ZvZ
+          </div>
+
+        </div>
+
+
+        <div class="cta-card">
+
+          <div class="cta-time">
+            22:00 UTC
+          </div>
+
+          <div class="cta-label">
+            ⚔️ CTA • Objetivos / ZvZ
+          </div>
+
+        </div>
+
+
+        <div class="cta-card">
+
+          <div class="cta-time">
+            00:00 UTC
+          </div>
+
+          <div class="cta-label">
+            ⚔️ CTA • Objetivos / ZvZ
+          </div>
+
+        </div>
+
+
+        <div class="cta-card">
+
+          <div class="cta-time">
+            02:00 UTC
+          </div>
+
+          <div class="cta-label">
+            ⚔️ CTA • Objetivos / ZvZ
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="cta-note">
+
+        Todos los horarios están expresados en UTC.
+        Las CTA se realizan junto a nuestra alianza.
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#mejora"
+      class="section-next">
+
+      <span>
+        Cómo mejoramos
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       IMPROVEMENT
+  ========================= -->
+
+  <section
+    class="section"
+    id="mejora">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        📈 MEJORA CONSTANTE
+      </h2>
+
+      <p class="section-subtitle">
+
+        No queremos solamente que juegues.
+        Queremos ayudarte a jugar mejor.
+
+      </p>
+
+
+      <div class="improvement">
+
+
+        <div class="improvement-card">
+
+          <h3>
+            🎥 ANÁLISIS DE VODs
+          </h3>
+
+          <p>
+
+            Revisamos nuestras peleas y actividades
+            para identificar errores y entender qué
+            podríamos haber hecho mejor.
+
+            <br><br>
+
+            Analizamos posicionamiento, toma de decisiones,
+            uso de habilidades, rotaciones, coordinación
+            y situaciones específicas durante las peleas.
+
+          </p>
+
+        </div>
+
+
+        <div class="improvement-card">
+
+          <h3>
+            🎯 COACHING PERSONALIZADO
+          </h3>
+
+          <p>
+
+            Cada jugador tiene diferentes puntos que mejorar.
+
+            <br><br>
+
+            Por eso ofrecemos ayuda personalizada para
+            trabajar aspectos concretos del gameplay,
+            desde decisiones individuales hasta
+            coordinación dentro del grupo.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#filosofia"
+      class="section-next">
+
+      <span>
+        Nuestra filosofía
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       PHILOSOPHY
+  ========================= -->
+
+  <section
+    class="philosophy"
+    id="filosofia">
+
+    <div class="container">
+
+      <h2>
+        JUGAR → ANALIZAR → CORREGIR → MEJORAR
+      </h2>
+
+      <p>
+
+        No esperamos que seas el mejor jugador cuando
+        entras al gremio.
+
+        <br><br>
+
+        Esperamos que tengas la actitud necesaria
+        para convertirte en uno.
+
+      </p>
+
+      <div class="quote">
+
+        "La mejora empieza cuando aceptas que todavía
+        puedes hacerlo mejor."
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- =========================
+       RECRUITMENT
+  ========================= -->
+
+  <section
+    class="section"
+    id="reclutamiento">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        🎯 ¿A QUIÉN BUSCAMOS?
+      </h2>
+
+      <p class="section-subtitle">
+
+        Si te identificas con esto, probablemente
+        THETFOREVER sea para ti.
+
+      </p>
+
+
+      <div class="requirements">
+
+        <div class="requirement">
+          <span>✓</span>
+          Jugadores serios y comprometidos
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Actividad regular
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Ganas de aprender y mejorar
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Buena comunicación por voz
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Capacidad para seguir calls
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Mentalidad de equipo
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Interés por Gank, Roaming y ZvZ
+        </div>
+
+        <div class="requirement">
+          <span>✓</span>
+          Disposición para recibir feedback
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <a
+      href="#final"
+      class="section-next">
+
+      <span>
+        Únete a THETFOREVER
+      </span>
+
+      <div class="section-next-arrow">
+        ↓
+      </div>
+
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       FINAL CTA
+  ========================= -->
+
+  <section
+    class="final-cta"
+    id="final">
+
+    <div class="container">
+
+      <h2>
+        ¿QUIERES MEJORAR?
+      </h2>
+
+      <p>
+
+        Si buscas un gremio donde puedas hacer
+        <strong>Gank, Roaming, ZvZ y Guerra de Facciones</strong>,
+
+        participar en <strong>CTA con la alianza</strong>,
+        pelear objetivos en Zona Negra y mejorar
+        tu gameplay mediante
+        <strong>VOD reviews y coaching</strong>...
+
+        <br><br>
+
+        <strong>
+          THETFOREVER te está esperando.
+        </strong>
+
+      </p>
+
+
+      <div class="buttons">
+
+        <a
+          href="https://discord.gg/uYH9yWtmzF"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary">
+
+          🚀 ENTRAR AL DISCORD
+
+        </a>
+
+      </div>
+
+
+      <div class="hero-social">
+
+        <a
+          href="https://www.youtube.com/@Thetforever/shorts"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn">
+
+          📺 YouTube
+
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@thetforever"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-btn">
+
+          🎵 TikTok
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    THETFOREVER • THETFORD • Albion Online
+
+  </footer>
+
+
 </body>
 </html>
