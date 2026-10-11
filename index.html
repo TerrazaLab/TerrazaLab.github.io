@@ -1,1169 +1,367 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4RW7186VK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4RW7186VK');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>THETFOREVER | Guerra de Facciones THETFORD | Albion Online</title>
-  <meta name="description" content="THETFOREVER es un gremio de THETFORD enfocado en Guerra de Facciones, Campamentos, Bomb Squad y PvP en Albion Online. Únete al Discord y participa en nuestras actividades.">
+  <meta name="description" content="THETFOREVER es un gremio de THETFORD enfocado en Guerra de Facciones, Campamentos, mazmorras grupales y AVAs en Albion Online. Únete al Discord y participa en nuestras actividades.">
   <meta name="theme-color" content="#7225e8">
-
-  <link rel="icon"
-    href="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png"
-    type="image/png">
-
+  <link rel="icon" href="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" type="image/png">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      background: #08040d;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(
-          rgba(8, 3, 15, 0.42),
-          rgba(8, 3, 15, 0.94)
-        ),
-        url('https://i.imgur.com/OBsrvW0.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      z-index: -2;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(
-          circle at 50% 10%,
-          rgba(150, 60, 255, 0.18),
-          transparent 45%
-        );
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(6, 3, 10, 0.82);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(178,102,255,0.15);
-    }
-
-    .nav-container {
-      width: min(1150px, 92%);
-      margin: auto;
-      min-height: 65px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      color: #c47cff;
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #bcb4c4;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.25s;
-    }
-
-    .nav-links a:hover {
-      color: #c47cff;
-    }
-
-    .container {
-      width: min(1150px, 92%);
-      margin: auto;
-    }
-
-    .section {
-      position: relative;
-      padding: 110px 0 145px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #c47cff;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 0 0 20px rgba(178,102,255,0.25);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 55px;
-      color: #aaa2b3;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    .section-next {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 7px;
-      color: #928999;
-      text-decoration: none;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: 0.25s;
-      animation: sectionFloat 2s ease-in-out infinite;
-    }
-
-    .section-next:hover {
-      color: #c47cff;
-    }
-
-    .section-next-arrow {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: 1px solid rgba(178,102,255,0.45);
-      background: rgba(100,30,160,0.18);
-      color: #c47cff;
-      font-size: 1.45rem;
-      box-shadow: 0 0 20px rgba(178,102,255,0.18);
-    }
-
-    @keyframes sectionFloat {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(7px);
-      }
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 110px 20px 120px;
-      background: linear-gradient(
-        rgba(5, 2, 10, 0.26),
-        rgba(5, 2, 10, 0.84)
-      );
-    }
-
-    .hero-content {
-      max-width: 920px;
-    }
-
-    .logo {
-      width: 145px;
-      height: 145px;
-      object-fit: contain;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 20px rgba(178,102,255,0.7));
-    }
-
-    .hero h1 {
-      font-size: clamp(3.5rem, 8vw, 6.5rem);
-      letter-spacing: 7px;
-      color: #c47cff;
-      line-height: 1;
-      margin-bottom: 20px;
-      text-shadow:
-        0 0 20px rgba(178,102,255,0.5),
-        0 0 50px rgba(110,30,200,0.25);
-    }
-
-    .hero-tagline {
-      font-size: clamp(1.05rem, 2vw, 1.45rem);
-      color: #eee;
-      font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-
-    .hero-description {
-      max-width: 800px;
-      margin: 0 auto 30px;
-      color: #c4bdca;
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    .hero-description strong {
-      color: #fff;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 17px 35px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.05rem;
-      transition: all 0.25s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #7225e8, #b266ff);
-      color: #fff;
-      box-shadow: 0 0 25px rgba(130,50,255,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 40px rgba(178,102,255,0.6);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(178,102,255,0.35);
-      color: #eee;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-4px);
-      background: rgba(178,102,255,0.15);
-      border-color: rgba(178,102,255,0.6);
-    }
-
-    .hero-social {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-social-title {
-      width: 100%;
-      color: #85808b;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 2px;
-    }
-
-    .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 9px;
-      color: #eee;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: rgba(255,255,255,0.055);
-      border: 1px solid rgba(178,102,255,0.25);
-      transition: all 0.25s ease;
-    }
-
-    .social-btn:hover {
-      background: rgba(178,102,255,0.18);
-      border-color: rgba(178,102,255,0.5);
-      transform: translateY(-3px);
-      color: #fff;
-    }
-
-    /* INTRO */
-    .intro {
-      background: linear-gradient(
-        rgba(10,4,18,0.95),
-        rgba(10,4,18,0.98)
-      );
-      border-top: 1px solid rgba(178,102,255,0.15);
-      border-bottom: 1px solid rgba(178,102,255,0.15);
-    }
-
-    .intro-content {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .intro-content h2 {
-      font-size: 2.4rem;
-      color: #fff;
-      margin-bottom: 25px;
-    }
-
-    .intro-content p {
-      color: #bdb5c5;
-      font-size: 1.15rem;
-      line-height: 1.9;
-    }
-
-    /* ACTIVITIES */
-    .activities {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .card {
-      padding: 35px 30px;
-      background: linear-gradient(
-        145deg,
-        rgba(178,102,255,0.12),
-        rgba(15,7,25,0.9)
-      );
-      border: 1px solid rgba(178,102,255,0.2);
-      border-radius: 18px;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(178,102,255,0.55);
-      box-shadow: 0 15px 45px rgba(0,0,0,0.4);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      font-size: 1.5rem;
-      color: #c47cff;
-      margin-bottom: 15px;
-    }
-
-    .card p {
-      color: #aaa3b1;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .card ul {
-      list-style: none;
-    }
-
-    .card li {
-      color: #d7d1dc;
-      margin: 10px 0;
-    }
-
-    .card li::before {
-      content: "✓";
-      color: #b266ff;
-      font-weight: bold;
-      margin-right: 9px;
-    }
-
-    /* TWITCH */
-    .twitch-section {
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(125,45,230,0.18),
-          transparent 60%
-        ),
-        linear-gradient(
-          rgba(12,4,22,0.95),
-          rgba(12,4,22,0.98)
-        );
-      border-top: 1px solid rgba(178,102,255,0.15);
-      border-bottom: 1px solid rgba(178,102,255,0.15);
-    }
-
-    .twitch-box {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-      padding: 50px 40px;
-      border: 1px solid rgba(178,102,255,0.3);
-      border-radius: 22px;
-      background: rgba(10,4,18,0.72);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-
-    .twitch-icon {
-      font-size: 3.2rem;
-      margin-bottom: 15px;
-    }
-
-    .twitch-box h3 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      color: #fff;
-    }
-
-    .twitch-box p {
-      max-width: 760px;
-      margin: 0 auto 30px;
-      color: #bdb5c5;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .twitch-note {
-      margin-top: 18px;
-      color: #8f8796;
-      font-size: 0.9rem;
-    }
-
-    /* HOW TO JOIN */
-    .join-grid {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .join-card {
-      text-align: center;
-      padding: 35px 25px;
-      background: rgba(15,7,25,0.85);
-      border: 1px solid rgba(178,102,255,0.2);
-      border-radius: 18px;
-    }
-
-    .join-number {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #7225e8, #b266ff);
-      font-weight: 900;
-      font-size: 1.2rem;
-    }
-
-    .join-card h3 {
-      color: #c47cff;
-      margin-bottom: 12px;
-    }
-
-    .join-card p {
-      color: #aaa3b1;
-      line-height: 1.7;
-    }
-
-    /* PHILOSOPHY */
-    .philosophy {
-      text-align: center;
-      padding: 110px 20px 145px;
-      background:
-        radial-gradient(
-          circle at center,
-          rgba(125,45,230,0.15),
-          transparent 60%
-        );
-    }
-
-    .philosophy h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    .philosophy p {
-      max-width: 800px;
-      margin: auto;
-      color: #aaa3b1;
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-
-    .quote {
-      margin-top: 35px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #c47cff;
-    }
-
-    /* RECRUITMENT */
-    .requirements {
-      max-width: 900px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    .requirement {
-      padding: 18px 20px;
-      background: rgba(178,102,255,0.07);
-      border: 1px solid rgba(178,102,255,0.15);
-      border-radius: 10px;
-      color: #d6d0da;
-    }
-
-    .requirement span {
-      color: #b266ff;
-      font-weight: bold;
-      margin-right: 8px;
-    }
-
-    /* FINAL CTA */
-    .final-cta {
-      position: relative;
-      text-align: center;
-      padding: 110px 20px 130px;
-      background: linear-gradient(
-        rgba(40,10,65,0.4),
-        rgba(8,3,15,0.97)
-      );
-      border-top: 1px solid rgba(178,102,255,0.15);
-    }
-
-    .final-cta h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      color: #c47cff;
-      margin-bottom: 20px;
-    }
-
-    .final-cta p {
-      max-width: 760px;
-      margin: 0 auto 35px;
-      color: #b9b1c0;
-      font-size: 1.15rem;
-      line-height: 1.8;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #68616e;
-      font-size: 0.85rem;
-      background: #060308;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #fff; background: #08040d; overflow-x: hidden; }
+    body::before { content: ""; position: fixed; inset: 0; background: linear-gradient(rgba(8,3,15,.42),rgba(8,3,15,.94)),url('https://i.imgur.com/OBsrvW0.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; z-index: -2; }
+    body::after { content: ""; position: fixed; inset: 0; background: radial-gradient(circle at 50% 10%,rgba(150,60,255,.18),transparent 45%); pointer-events: none; z-index: -1; }
+    a { color: inherit; }
+    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(6,3,10,.88); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(178,102,255,.15); }
+    .nav-container { width: min(1150px,92%); margin: auto; min-height: 65px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .nav-logo { color: #c47cff; text-decoration: none; font-weight: 900; letter-spacing: 2px; font-size: 1.1rem; white-space: nowrap; }
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+    .nav-links a { color: #bcb4c4; text-decoration: none; font-size: .9rem; transition: .25s; white-space: nowrap; }
+    .nav-links a:hover { color: #c47cff; }
+    .language-toggle { cursor: pointer; color: #fff; background: rgba(114,37,232,.25); border: 1px solid rgba(178,102,255,.6); border-radius: 8px; padding: 9px 12px; font-weight: 800; font-size: .82rem; transition: .25s; white-space: nowrap; }
+    .language-toggle:hover { background: #7225e8; transform: translateY(-2px); }
+    .container { width: min(1150px,92%); margin: auto; }
+    .section { position: relative; padding: 110px 0 145px; }
+    .section-title { text-align: center; font-size: 2.5rem; color: #c47cff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 20px rgba(178,102,255,.25); }
+    .section-subtitle { text-align: center; max-width: 780px; margin: 0 auto 55px; color: #aaa2b3; font-size: 1.1rem; line-height: 1.7; }
+    .section-next { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 7px; color: #928999; text-decoration: none; font-size: .7rem; text-transform: uppercase; letter-spacing: 2px; transition: .25s; animation: sectionFloat 2s ease-in-out infinite; white-space: nowrap; }
+    .section-next:hover { color: #c47cff; }
+    .section-next-arrow { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(178,102,255,.45); background: rgba(100,30,160,.18); color: #c47cff; font-size: 1.45rem; box-shadow: 0 0 20px rgba(178,102,255,.18); }
+    @keyframes sectionFloat { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(7px); } }
+    .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding: 110px 20px 120px; background: linear-gradient(rgba(5,2,10,.26),rgba(5,2,10,.84)); }
+    .hero-content { max-width: 920px; }
+    .logo { width: 145px; height: 145px; object-fit: contain; margin-bottom: 20px; filter: drop-shadow(0 0 20px rgba(178,102,255,.7)); }
+    .hero h1 { font-size: clamp(3rem,8vw,6.5rem); letter-spacing: 7px; color: #c47cff; line-height: 1; margin-bottom: 20px; text-shadow: 0 0 20px rgba(178,102,255,.5),0 0 50px rgba(110,30,200,.25); }
+    .hero-tagline { font-size: clamp(1.05rem,2vw,1.45rem); color: #eee; font-weight: 700; letter-spacing: 2px; margin-bottom: 25px; }
+    .hero-description { max-width: 800px; margin: 0 auto 30px; color: #c4bdca; font-size: 1.15rem; line-height: 1.8; }
+    .hero-description strong { color: #fff; }
+    .buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 17px 35px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 1.05rem; transition: all .25s ease; }
+    .btn-primary { background: linear-gradient(135deg,#7225e8,#b266ff); color: #fff; box-shadow: 0 0 25px rgba(130,50,255,.35); }
+    .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 0 40px rgba(178,102,255,.6); }
+    .btn-secondary { background: rgba(255,255,255,.055); border: 1px solid rgba(178,102,255,.35); color: #eee; }
+    .btn-secondary:hover { transform: translateY(-4px); background: rgba(178,102,255,.15); border-color: rgba(178,102,255,.6); }
+    .hero-social { margin-top: 28px; display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .hero-social-title { width: 100%; color: #85808b; font-size: .8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px; }
+    .social-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 9px; color: #eee; text-decoration: none; font-size: .9rem; font-weight: 600; background: rgba(255,255,255,.055); border: 1px solid rgba(178,102,255,.25); transition: all .25s ease; }
+    .social-btn:hover { background: rgba(178,102,255,.18); border-color: rgba(178,102,255,.5); transform: translateY(-3px); color: #fff; }
+    .intro { background: linear-gradient(rgba(10,4,18,.95),rgba(10,4,18,.98)); border-top: 1px solid rgba(178,102,255,.15); border-bottom: 1px solid rgba(178,102,255,.15); }
+    .intro-content { max-width: 850px; margin: auto; text-align: center; }
+    .intro-content h2 { font-size: 2.4rem; color: #fff; margin-bottom: 25px; }
+    .intro-content p { color: #bdb5c5; font-size: 1.15rem; line-height: 1.9; }
+    .activities { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
+    .card { padding: 35px 30px; background: linear-gradient(145deg,rgba(178,102,255,.12),rgba(15,7,25,.9)); border: 1px solid rgba(178,102,255,.2); border-radius: 18px; transition: all .3s ease; }
+    .card:hover { transform: translateY(-7px); border-color: rgba(178,102,255,.55); box-shadow: 0 15px 45px rgba(0,0,0,.4); }
+    .card-icon { font-size: 2.5rem; margin-bottom: 18px; }
+    .card h3 { font-size: 1.5rem; color: #c47cff; margin-bottom: 15px; }
+    .card p { color: #aaa3b1; line-height: 1.7; margin-bottom: 18px; }
+    .card ul { list-style: none; }
+    .card li { color: #d7d1dc; margin: 10px 0; }
+    .card li::before { content: "✓"; color: #b266ff; font-weight: bold; margin-right: 9px; }
+    .twitch-section { background: radial-gradient(circle at center,rgba(125,45,230,.18),transparent 60%),linear-gradient(rgba(12,4,22,.95),rgba(12,4,22,.98)); border-top: 1px solid rgba(178,102,255,.15); border-bottom: 1px solid rgba(178,102,255,.15); }
+    .twitch-box { max-width: 900px; margin: auto; text-align: center; padding: 50px 40px; border: 1px solid rgba(178,102,255,.3); border-radius: 22px; background: rgba(10,4,18,.72); box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+    .twitch-icon { font-size: 3.2rem; margin-bottom: 15px; }
+    .twitch-box h3 { font-size: 2rem; margin-bottom: 18px; color: #fff; }
+    .twitch-box p { max-width: 760px; margin: 0 auto 30px; color: #bdb5c5; font-size: 1.1rem; line-height: 1.8; }
+    .twitch-note { margin-top: 18px; color: #8f8796; font-size: .9rem; }
+    .join-grid { max-width: 1000px; margin: auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .join-card { text-align: center; padding: 35px 25px; background: rgba(15,7,25,.85); border: 1px solid rgba(178,102,255,.2); border-radius: 18px; }
+    .join-number { width: 48px; height: 48px; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(135deg,#7225e8,#b266ff); font-weight: 900; font-size: 1.2rem; }
+    .join-card h3 { color: #c47cff; margin-bottom: 12px; }
+    .join-card p { color: #aaa3b1; line-height: 1.7; }
+    .philosophy { text-align: center; padding: 110px 20px 145px; background: radial-gradient(circle at center,rgba(125,45,230,.15),transparent 60%); }
+    .philosophy h2 { font-size: clamp(2rem,5vw,3.5rem); color: #fff; margin-bottom: 20px; }
+    .philosophy p { max-width: 800px; margin: auto; color: #aaa3b1; font-size: 1.2rem; line-height: 1.8; }
+    .quote { margin-top: 35px; font-size: 1.5rem; font-weight: bold; color: #c47cff; }
+    .requirements { max-width: 900px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .requirement { padding: 18px 20px; background: rgba(178,102,255,.07); border: 1px solid rgba(178,102,255,.15); border-radius: 10px; color: #d6d0da; }
+    .requirement span { color: #b266ff; font-weight: bold; margin-right: 8px; }
+    .final-cta { position: relative; text-align: center; padding: 110px 20px 130px; background: linear-gradient(rgba(40,10,65,.4),rgba(8,3,15,.97)); border-top: 1px solid rgba(178,102,255,.15); }
+    .final-cta h2 { font-size: clamp(2.5rem,6vw,4rem); color: #c47cff; margin-bottom: 20px; }
+    .final-cta p { max-width: 760px; margin: 0 auto 35px; color: #b9b1c0; font-size: 1.15rem; line-height: 1.8; }
+    footer { text-align: center; padding: 30px; color: #68616e; font-size: .85rem; background: #060308; }
     @media (max-width: 900px) {
-      .activities,
-      .join-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .requirements {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
+      .activities,.join-grid { grid-template-columns: 1fr; }
+      .requirements { grid-template-columns: 1fr; }
+      .nav-container { flex-wrap: wrap; justify-content: center; padding: 12px 0; }
+      .nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 18px; }
     }
-
     @media (max-width: 600px) {
-      .section {
-        padding: 75px 0 125px;
-      }
-
-      .hero {
-        padding: 100px 20px 115px;
-      }
-
-      .hero h1 {
-        letter-spacing: 3px;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 330px;
-      }
-
-      .section-next {
-        bottom: 20px;
-      }
-
-      .philosophy {
-        padding: 75px 20px 125px;
-      }
-
-      .final-cta {
-        padding: 80px 20px 115px;
-      }
-
-      .twitch-box {
-        padding: 40px 22px;
-      }
+      .section { padding: 75px 0 125px; }
+      .hero { padding: 145px 20px 115px; }
+      .hero h1 { letter-spacing: 3px; font-size: clamp(2.5rem,11vw,4rem); }
+      .hero-tagline { letter-spacing: 1px; }
+      .btn { width: 100%; max-width: 330px; }
+      .section-next { bottom: 20px; font-size: .62rem; letter-spacing: 1px; }
+      .philosophy { padding: 75px 20px 125px; }
+      .final-cta { padding: 80px 20px 115px; }
+      .twitch-box { padding: 40px 22px; }
+      .section-title { font-size: 1.9rem; }
+      .intro-content h2 { font-size: 1.9rem; }
+      .nav-links { gap: 10px 14px; }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
-
-      <a href="#inicio" class="nav-logo">
-        THETFOREVER
-      </a>
-
+      <a href="#inicio" class="nav-logo">THETFOREVER</a>
       <ul class="nav-links">
-        <li><a href="#contenido">Contenido</a></li>
+        <li><a href="#contenido" data-i18n="nav_content">Contenido</a></li>
         <li><a href="#twitch">Twitch</a></li>
-        <li><a href="#reclutamiento">Reclutamiento</a></li>
-        <li><a href="#unete">Discord</a></li>
+        <li><a href="#reclutamiento" data-i18n="nav_recruit">Reclutamiento</a></li>
+        <li><a href="#unete" data-i18n="nav_discord">Discord</a></li>
+        <li><button id="language-toggle" class="language-toggle" type="button" aria-label="Cambiar idioma">ES / PT-BR</button></li>
       </ul>
-
     </div>
   </nav>
 
-
-  <!-- HERO -->
   <section class="hero" id="inicio">
-
     <div class="hero-content">
-
-      <img
-        class="logo"
-        src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png"
-        alt="THETFOREVER">
-
+      <img class="logo" src="https://cdn.discordapp.com/icons/1084160099947389088/4e65d17ecd6dca56fd3974a07cafc691.png" alt="THETFOREVER">
       <h1>THETFOREVER</h1>
-
-      <div class="hero-tagline">
-        GUERRA DE FACCIONES • THETFORD • PVP
-      </div>
-
-      <p class="hero-description">
-        <strong>Gremio de THETFORD</strong> enfocado en
-        <strong>Guerra de Facciones y contenido PvP</strong> en Albion Online.
-        <br><br>
-        Participamos en <strong>Campamentos de Facción, Bomb Squad y peleas faccionadas</strong>,
-        además de realizar <strong>Roaming, Gank y contenido de criaturas de Crystal</strong>.
+      <div class="hero-tagline" data-i18n="tagline">GUERRA DE FACCIONES • THETFORD • PVP</div>
+      <p class="hero-description" data-i18n="hero_desc">
+        <strong>Gremio de THETFORD</strong> enfocado en <strong>Guerra de Facciones y contenido PvP</strong> en Albion Online.<br><br>
+        Participamos en <strong>Campamentos de Facción, mazmorras grupales y AVAs</strong>, además de realizar <strong>Roaming, Gank y contenido de criaturas de Crystal</strong>.
       </p>
-
       <div class="buttons">
-
-        <a
-          href="https://discord.gg/uYH9yWtmzF"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary">
-          ⚔️ ÚNETE AL DISCORD
-        </a>
-
-        <a
-          href="https://www.twitch.tv/thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary">
-          🔴 VER TWITCH
-        </a>
-
+        <a href="https://discord.gg/uYH9yWtmzF" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="join_discord">⚔️ ÚNETE AL DISCORD</a>
+        <a href="https://www.twitch.tv/srbandoleroalbion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="watch_twitch">🔴 VER TWITCH</a>
       </div>
-
       <div class="hero-social">
-
-        <div class="hero-social-title">
-          MIRA NUESTRO CONTENIDO
-        </div>
-
-        <a
-          href="https://www.twitch.tv/thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          🔴 Twitch
-        </a>
-
-        <a
-          href="https://www.youtube.com/@Thetforever/shorts"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          📺 YouTube
-        </a>
-
-        <a
-          href="https://www.tiktok.com/@thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          🎵 TikTok
-        </a>
-
+        <div class="hero-social-title" data-i18n="social_title">MIRA NUESTRO CONTENIDO</div>
+        <a href="https://www.twitch.tv/srbandoleroalbion" target="_blank" rel="noopener noreferrer" class="social-btn">🔴 Twitch</a>
+        <a href="https://www.youtube.com/@Thetforever/shorts" target="_blank" rel="noopener noreferrer" class="social-btn">📺 YouTube</a>
+        <a href="https://www.tiktok.com/@thetforever" target="_blank" rel="noopener noreferrer" class="social-btn">🎵 TikTok</a>
       </div>
-
     </div>
-
-    <a href="#intro" class="section-next">
-      <span>DESCUBRE THETFOREVER</span>
-      <div class="section-next-arrow">↓</div>
-    </a>
-
+    <a href="#intro" class="section-next"><span data-i18n="discover">DESCUBRE THETFOREVER</span><div class="section-next-arrow">↓</div></a>
   </section>
 
-
-  <!-- INTRO -->
   <section class="section intro" id="intro">
-
     <div class="container">
-
       <div class="intro-content">
-
-        <h2>THETFORD ES NUESTRO CAMPO DE BATALLA.</h2>
-
-        <p>
-          En <strong>THETFOREVER</strong> hacemos de la
-          <strong>Guerra de Facciones de THETFORD</strong> una parte central de nuestro contenido.
-          <br><br>
-          Participamos en <strong>Campamentos de Facción, Bomb Squad y peleas PvP</strong>,
-          buscando acción y jugando en equipo.
-          <br><br>
-          También realizamos <strong>Roaming, Gank y actividades de criaturas de Crystal</strong>.
-          <br><br>
+        <h2 data-i18n="intro_title">THETFORD ES NUESTRO CAMPO DE BATALLA.</h2>
+        <p data-i18n="intro_desc">
+          En <strong>THETFOREVER</strong> hacemos de la <strong>Guerra de Facciones de THETFORD</strong> una parte central de nuestro contenido.<br><br>
+          Participamos en <strong>Campamentos de Facción, mazmorras grupales y AVAs</strong>, buscando acción y jugando en equipo.<br><br>
+          También realizamos <strong>Roaming, Gank y actividades de criaturas de Crystal</strong>.<br><br>
           <strong>¿Quieres participar? Entra a nuestro Discord y aplica mediante un ticket.</strong>
         </p>
-
       </div>
-
     </div>
-
-    <a href="#contenido" class="section-next">
-      <span>NUESTRO CONTENIDO</span>
-      <div class="section-next-arrow">↓</div>
-    </a>
-
+    <a href="#contenido" class="section-next"><span data-i18n="our_content">NUESTRO CONTENIDO</span><div class="section-next-arrow">↓</div></a>
   </section>
 
-
-  <!-- CONTENT -->
   <section class="section" id="contenido">
-
     <div class="container">
-
-      <h2 class="section-title">⚔️ NUESTRO CONTENIDO</h2>
-
-      <p class="section-subtitle">
-        Guerra de Facciones de THETFORD y actividades PvP para jugar,
-        pelear y mejorar juntos.
-      </p>
-
+      <h2 class="section-title" data-i18n="content_title">⚔️ NUESTRO CONTENIDO</h2>
+      <p class="section-subtitle" data-i18n="content_subtitle">Guerra de Facciones de THETFORD y actividades PvP para jugar, pelear y mejorar juntos.</p>
       <div class="activities">
-
         <div class="card">
-
           <div class="card-icon">🟣</div>
-
-          <h3>GUERRA DE FACCIONES</h3>
-
-          <p>
-            Representamos a <strong>THETFORD</strong> y participamos
-            activamente en contenido de Facción.
-          </p>
-
+          <h3 data-i18n="faction_title">GUERRA DE FACCIONES</h3>
+          <p data-i18n="faction_desc">Representamos a <strong>THETFORD</strong> y participamos activamente en contenido de Facción.</p>
           <ul>
-            <li>Guerra de Facciones</li>
-            <li>Campamentos de Facción</li>
-            <li>Peleas PvP</li>
-            <li>Captura y defensa de objetivos</li>
-            <li>Roaming faccionado</li>
-            <li>Contenido en directo por Twitch</li>
+            <li data-i18n="faction_1">Guerra de Facciones</li><li data-i18n="faction_2">Campamentos de Facción</li><li data-i18n="faction_3">Peleas PvP</li><li data-i18n="faction_4">Captura y defensa de objetivos</li><li data-i18n="faction_5">Roaming faccionado</li><li data-i18n="faction_6">Contenido en directo por Twitch</li>
           </ul>
-
         </div>
-
-
         <div class="card">
-
           <div class="card-icon">💣</div>
-
-          <h3>BOMB SQUAD</h3>
-
-          <p>
-            Practicamos y participamos en <strong>Bomb Squad</strong>
-            dentro del contenido de Facción de THETFORD.
-          </p>
-
+          <h3 data-i18n="dungeons_title">MAZMORRAS GRUPALES • AVA</h3>
+          <p data-i18n="dungeons_desc">Organizamos mazmorras grupales y mazmorras Avalonianas para conseguir fama, mejorar en equipo y disfrutar del contenido PvE.</p>
           <ul>
-            <li>Bomb Squad</li>
-            <li>Prácticas en Facción</li>
-            <li>Coordinación de grupo</li>
-            <li>Engages</li>
-            <li>Peleas PvP</li>
-            <li>Contenido para Twitch</li>
+            <li data-i18n="dungeons_1">Mazmorras grupales</li><li data-i18n="dungeons_2">Mazmorras Avalonianas (AVA)</li><li data-i18n="dungeons_3">Grupos organizados</li><li data-i18n="dungeons_4">Coordinación y trabajo en equipo</li><li data-i18n="dungeons_5">Progresión y fama</li><li data-i18n="dungeons_6">Contenido PvE en grupo</li>
           </ul>
-
         </div>
-
-
         <div class="card">
-
           <div class="card-icon">🩸</div>
-
           <h3>ROAMING • GANK • CRYSTAL</h3>
-
-          <p>
-            Fuera de la Facción también salimos con el gremio
-            a buscar acción.
-          </p>
-
+          <p data-i18n="roaming_desc">Fuera de la Facción también salimos con el gremio a buscar acción.</p>
           <ul>
-            <li>Roaming</li>
-            <li>Gank organizado</li>
-            <li>Criaturas de Crystal</li>
-            <li>Peleas PvP</li>
-            <li>Small Scale</li>
-            <li>Contenido espontáneo</li>
+            <li>Roaming</li><li>Gank organizado</li><li data-i18n="crystal_creatures">Criaturas de Crystal</li><li data-i18n="pvp_fights">Peleas PvP</li><li>Small Scale</li><li data-i18n="spontaneous">Contenido espontáneo</li>
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
-    <a href="#twitch" class="section-next">
-      <span>VER THETFOREVER EN TWITCH</span>
-      <div class="section-next-arrow">↓</div>
-    </a>
-
+    <a href="#twitch" class="section-next"><span data-i18n="see_twitch">VER THETFOREVER EN TWITCH</span><div class="section-next-arrow">↓</div></a>
   </section>
 
-
-  <!-- TWITCH -->
   <section class="section twitch-section" id="twitch">
-
     <div class="container">
-
-      <h2 class="section-title">🔴 THETFOREVER EN TWITCH</h2>
-
-      <p class="section-subtitle">
-        Mira nuestra Guerra de Facciones de THETFORD en directo.
-      </p>
-
+      <h2 class="section-title" data-i18n="twitch_title">🔴 THETFOREVER EN TWITCH</h2>
+      <p class="section-subtitle" data-i18n="twitch_subtitle">Mira nuestra Guerra de Facciones de THETFORD en directo.</p>
       <div class="twitch-box">
-
         <div class="twitch-icon">🔴</div>
-
-        <h3>LA ACCIÓN DE THETFORD EN DIRECTO</h3>
-
-        <p>
-          Transmitimos nuestras actividades de
-          <strong>Guerra de Facciones, Campamentos, Bomb Squad y PvP</strong>
-          para que puedas conocer cómo jugamos y formar parte de nuestra comunidad.
-          <br><br>
-          Mira el stream, conoce <strong>THETFOREVER</strong> y después
-          <strong>únete a nuestro Discord</strong>.
-        </p>
-
+        <h3 data-i18n="live_title">LA ACCIÓN DE THETFORD EN DIRECTO</h3>
+        <p data-i18n="live_desc">Transmitimos nuestras actividades de <strong>Guerra de Facciones, Campamentos, mazmorras grupales y AVAs</strong> para que puedas conocer cómo jugamos y formar parte de nuestra comunidad.<br><br>Mira el stream, conoce <strong>THETFOREVER</strong> y después <strong>únete a nuestro Discord</strong>.</p>
         <div class="buttons">
-
-          <a
-            href="https://www.twitch.tv/thetforever"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary">
-            🔴 VER EL STREAM
-          </a>
-
-          <a
-            href="https://discord.gg/uYH9yWtmzF"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary">
-            ⚔️ UNIRME AL DISCORD
-          </a>
-
+          <a href="https://www.twitch.tv/srbandoleroalbion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="watch_stream">🔴 VER EL STREAM</a>
+          <a href="https://discord.gg/uYH9yWtmzF" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="join_discord_2">⚔️ UNIRME AL DISCORD</a>
         </div>
-
-        <div class="twitch-note">
-          Guerra de Facciones • THETFORD • PvP • THETFOREVER
-        </div>
-
+        <div class="twitch-note">THETFORD • PvP • THETFOREVER</div>
       </div>
-
     </div>
-
-    <a href="#reclutamiento" class="section-next">
-      <span>QUIERO UNIRME</span>
-      <div class="section-next-arrow">↓</div>
-    </a>
-
+    <a href="#reclutamiento" class="section-next"><span data-i18n="i_want_join">QUIERO UNIRME</span><div class="section-next-arrow">↓</div></a>
   </section>
 
-
-  <!-- RECRUITMENT -->
   <section class="section" id="reclutamiento">
-
     <div class="container">
-
-      <h2 class="section-title">🎯 ¿QUIERES JUGAR POR THETFORD?</h2>
-
-      <p class="section-subtitle">
-        Buscamos jugadores que quieran participar activamente
-        en nuestro contenido PvP.
-      </p>
-
+      <h2 class="section-title" data-i18n="recruit_title">🎯 ¿QUIERES JUGAR POR THETFORD?</h2>
+      <p class="section-subtitle" data-i18n="recruit_subtitle">Buscamos jugadores que quieran participar activamente en nuestro contenido PvP.</p>
       <div class="requirements">
-
-        <div class="requirement">
-          <span>✓</span>
-          Interés en Guerra de Facciones de THETFORD
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Ganas de participar en Campamentos de Facción
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Interés en Bomb Squad y PvP
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Actividad regular
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Buena comunicación por voz
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Mentalidad de equipo
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Ganas de aprender y mejorar
-        </div>
-
-        <div class="requirement">
-          <span>✓</span>
-          Interés en Roaming, Gank y Crystal Creatures
-        </div>
-
+        <div class="requirement"><span>✓</span><span data-i18n="req_1">Interés en Guerra de Facciones de THETFORD</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_2">Ganas de participar en Campamentos de Facción</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_3">Interés en mazmorras grupales y AVAs</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_4">Actividad regular</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_5">Buena comunicación por voz</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_6">Mentalidad de equipo</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_7">Ganas de aprender y mejorar</span></div>
+        <div class="requirement"><span>✓</span><span data-i18n="req_8">Interés en Roaming, Gank y criaturas de Crystal</span></div>
       </div>
-
     </div>
-
-    <a href="#unete" class="section-next">
-      <span>CÓMO UNIRTE</span>
-      <div class="section-next-arrow">↓</div>
-    </a>
-
+    <a href="#unete" class="section-next"><span data-i18n="how_to_join">CÓMO UNIRTE</span><div class="section-next-arrow">↓</div></a>
   </section>
 
-
-  <!-- HOW TO JOIN -->
   <section class="section intro" id="unete">
-
     <div class="container">
-
-      <h2 class="section-title">🚀 ÚNETE A THETFOREVER</h2>
-
-      <p class="section-subtitle">
-        Entrar es sencillo. Nuestro Discord es el punto de encuentro
-        para conocer el gremio y realizar tu aplicación.
-      </p>
-
+      <h2 class="section-title" data-i18n="join_title">🚀 ÚNETE A THETFOREVER</h2>
+      <p class="section-subtitle" data-i18n="join_subtitle">Entrar es sencillo. Nuestro Discord es el punto de encuentro para conocer el gremio y realizar tu aplicación.</p>
       <div class="join-grid">
-
-        <div class="join-card">
-          <div class="join-number">1</div>
-          <h3>ENTRA AL DISCORD</h3>
-          <p>
-            Únete a nuestro servidor y conoce la comunidad de THETFOREVER.
-          </p>
-        </div>
-
-        <div class="join-card">
-          <div class="join-number">2</div>
-          <h3>ABRE UN TICKET</h3>
-          <p>
-            Utiliza nuestro sistema de tickets de Carl-bot
-            para realizar tu aplicación.
-          </p>
-        </div>
-
-        <div class="join-card">
-          <div class="join-number">3</div>
-          <h3>CONOCE EL GREMIO</h3>
-          <p>
-            Un reclutador revisará tu aplicación y podrás comenzar
-            a participar en nuestras actividades.
-          </p>
-        </div>
-
+        <div class="join-card"><div class="join-number">1</div><h3 data-i18n="step1_title">ENTRA AL DISCORD</h3><p data-i18n="step1_desc">Únete a nuestro servidor y conoce la comunidad de THETFOREVER.</p></div>
+        <div class="join-card"><div class="join-number">2</div><h3 data-i18n="step2_title">ABRE UN TICKET</h3><p data-i18n="step2_desc">Utiliza nuestro sistema de tickets de Carl-bot para realizar tu aplicación.</p></div>
+        <div class="join-card"><div class="join-number">3</div><h3 data-i18n="step3_title">CONOCE EL GREMIO</h3><p data-i18n="step3_desc">Un reclutador revisará tu aplicación y podrás comenzar a participar en nuestras actividades.</p></div>
       </div>
-
-      <div class="buttons" style="margin-top: 40px;">
-        <a
-          href="https://discord.gg/uYH9yWtmzF"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary">
-          ⚔️ ENTRAR AL DISCORD
-        </a>
-      </div>
-
+      <div class="buttons" style="margin-top:40px"><a href="https://discord.gg/uYH9yWtmzF" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="enter_discord">⚔️ ENTRAR AL DISCORD</a></div>
     </div>
-
   </section>
 
-
-  <!-- PHILOSOPHY -->
   <section class="philosophy">
-
     <div class="container">
-
-      <h2>REPRESENTAR THETFORD. BUSCAR PELEAS. JUGAR JUNTOS.</h2>
-
-      <p>
-        No buscamos simplemente llenar el gremio.
-        <br><br>
-        Buscamos jugadores que quieran participar en
-        <strong>Guerra de Facciones, Bomb Squad y PvP</strong>,
-        compartir actividades con el grupo y disfrutar de Albion Online.
-        <br><br>
-        Desde un Campamento de Facción hasta una salida de Gank
-        o una pelea de Crystal, queremos jugar juntos y crear buen contenido.
-      </p>
-
-      <div class="quote">
-        THETFORD ES NUESTRA FACCION. THETFOREVER ES NUESTRO GREMIO.
-      </div>
-
+      <h2 data-i18n="philosophy_title">REPRESENTAR THETFORD. BUSCAR PELEAS. JUGAR JUNTOS.</h2>
+      <p data-i18n="philosophy_desc">No buscamos simplemente llenar el gremio.<br><br>Buscamos jugadores que quieran participar en <strong>Guerra de Facciones, mazmorras grupales y AVAs</strong>, compartir actividades con el grupo y disfrutar de Albion Online.<br><br>Desde un Campamento de Facción hasta una salida de Gank o una pelea de Crystal, queremos jugar juntos y crear buen contenido.</p>
+      <div class="quote" data-i18n="quote">THETFORD ES NUESTRA FACCION. THETFOREVER ES NUESTRO GREMIO.</div>
     </div>
-
   </section>
 
-
-  <!-- FINAL CTA -->
   <section class="final-cta">
-
     <div class="container">
-
-      <h2>¿TE GUSTA EL CONTENIDO DE THETFORD?</h2>
-
-      <p>
-        Si disfrutas de la
-        <strong>Guerra de Facciones, Campamentos, Bomb Squad y PvP</strong>,
-        únete a <strong>THETFOREVER</strong>.
-        <br><br>
-        También hacemos <strong>Roaming, Gank y criaturas de Crystal</strong>
-        para mantener siempre la acción.
-        <br><br>
-        <strong>
-          Entra a nuestro Discord, abre un ticket y conoce nuestra comunidad.
-        </strong>
-      </p>
-
+      <h2 data-i18n="final_title">¿TE GUSTA EL CONTENIDO DE THETFORD?</h2>
+      <p data-i18n="final_desc">Si disfrutas de la <strong>Guerra de Facciones, Campamentos, mazmorras grupales y AVAs</strong>, únete a <strong>THETFOREVER</strong>.<br><br>También hacemos <strong>Roaming, Gank y criaturas de Crystal</strong> para mantener siempre la acción.<br><br><strong>Entra a nuestro Discord, abre un ticket y conoce nuestra comunidad.</strong></p>
       <div class="buttons">
-
-        <a
-          href="https://discord.gg/uYH9yWtmzF"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary">
-          ⚔️ UNIRME AL DISCORD
-        </a>
-
-        <a
-          href="https://www.twitch.tv/thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-secondary">
-          🔴 VER THETFOREVER EN TWITCH
-        </a>
-
+        <a href="https://discord.gg/uYH9yWtmzF" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="join_discord_3">⚔️ UNIRME AL DISCORD</a>
+        <a href="https://www.twitch.tv/srbandoleroalbion" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-i18n="watch_thetforever">🔴 VER THETFOREVER EN TWITCH</a>
       </div>
-
       <div class="hero-social">
-
-        <a
-          href="https://www.twitch.tv/thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          🔴 Twitch
-        </a>
-
-        <a
-          href="https://www.youtube.com/@Thetforever/shorts"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          📺 YouTube
-        </a>
-
-        <a
-          href="https://www.tiktok.com/@thetforever"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-btn">
-          🎵 TikTok
-        </a>
-
+        <a href="https://www.twitch.tv/srbandoleroalbion" target="_blank" rel="noopener noreferrer" class="social-btn">🔴 Twitch</a>
+        <a href="https://www.youtube.com/@Thetforever/shorts" target="_blank" rel="noopener noreferrer" class="social-btn">📺 YouTube</a>
+        <a href="https://www.tiktok.com/@thetforever" target="_blank" rel="noopener noreferrer" class="social-btn">🎵 TikTok</a>
       </div>
-
     </div>
-
   </section>
 
+  <footer data-i18n="footer">THETFOREVER • THETFORD • GUERRA DE FACCIONES • ALBION ONLINE</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    THETFOREVER • THETFORD • GUERRA DE FACCIONES • ALBION ONLINE
-  </footer>
+  <script>
+    const translations = {
+      es: {
+        title: "THETFOREVER | Guerra de Facciones THETFORD | Albion Online",
+        description: "THETFOREVER es un gremio de THETFORD enfocado en Guerra de Facciones, Campamentos, mazmorras grupales y AVAs en Albion Online. Únete al Discord y participa en nuestras actividades.",
+        nav_content:"Contenido", nav_recruit:"Reclutamiento", nav_discord:"Discord",
+        tagline:"GUERRA DE FACCIONES • THETFORD • PVP",
+        hero_desc:"<strong>Gremio de THETFORD</strong> enfocado en <strong>Guerra de Facciones y contenido PvP</strong> en Albion Online.<br><br>Participamos en <strong>Campamentos de Facción, mazmorras grupales y AVAs</strong>, además de realizar <strong>Roaming, Gank y contenido de criaturas de Crystal</strong>.",
+        join_discord:"⚔️ ÚNETE AL DISCORD", watch_twitch:"🔴 VER TWITCH", social_title:"MIRA NUESTRO CONTENIDO", discover:"DESCUBRE THETFOREVER",
+        intro_title:"THETFORD ES NUESTRO CAMPO DE BATALLA.",
+        intro_desc:"En <strong>THETFOREVER</strong> hacemos de la <strong>Guerra de Facciones de THETFORD</strong> una parte central de nuestro contenido.<br><br>Participamos en <strong>Campamentos de Facción, mazmorras grupales y AVAs</strong>, buscando acción y jugando en equipo.<br><br>También realizamos <strong>Roaming, Gank y actividades de criaturas de Crystal</strong>.<br><br><strong>¿Quieres participar? Entra a nuestro Discord y aplica mediante un ticket.</strong>",
+        our_content:"NUESTRO CONTENIDO", content_title:"⚔️ NUESTRO CONTENIDO", content_subtitle:"Guerra de Facciones de THETFORD y actividades PvP para jugar, pelear y mejorar juntos.",
+        faction_title:"GUERRA DE FACCIONES", faction_desc:"Representamos a <strong>THETFORD</strong> y participamos activamente en contenido de Facción.",
+        faction_1:"Guerra de Facciones", faction_2:"Campamentos de Facción", faction_3:"Peleas PvP", faction_4:"Captura y defensa de objetivos", faction_5:"Roaming faccionado", faction_6:"Contenido en directo por Twitch",
+        dungeons_title:"MAZMORRAS GRUPALES • AVA", dungeons_desc:"Organizamos mazmorras grupales y mazmorras Avalonianas para conseguir fama, mejorar en equipo y disfrutar del contenido PvE.", dungeons_1:"Mazmorras grupales", dungeons_2:"Mazmorras Avalonianas (AVA)", dungeons_3:"Grupos organizados", dungeons_4:"Coordinación y trabajo en equipo", dungeons_5:"Progresión y fama", dungeons_6:"Contenido PvE en grupo",
+        roaming_desc:"Fuera de la Facción también salimos con el gremio a buscar acción.", crystal_creatures:"Criaturas de Crystal", pvp_fights:"Peleas PvP", spontaneous:"Contenido espontáneo",
+        see_twitch:"VER THETFOREVER EN TWITCH", twitch_title:"🔴 THETFOREVER EN TWITCH", twitch_subtitle:"Mira nuestra Guerra de Facciones de THETFORD en directo.",
+        live_title:"LA ACCIÓN DE THETFORD EN DIRECTO", live_desc:"Transmitimos nuestras actividades de <strong>Guerra de Facciones, Campamentos, mazmorras grupales y AVAs</strong> para que puedas conocer cómo jugamos y formar parte de nuestra comunidad.<br><br>Mira el stream, conoce <strong>THETFOREVER</strong> y después <strong>únete a nuestro Discord</strong>.",
+        watch_stream:"🔴 VER EL STREAM", join_discord_2:"⚔️ UNIRME AL DISCORD", i_want_join:"QUIERO UNIRME",
+        recruit_title:"🎯 ¿QUIERES JUGAR POR THETFORD?", recruit_subtitle:"Buscamos jugadores que quieran participar activamente en nuestro contenido PvP.",
+        req_1:"Interés en Guerra de Facciones de THETFORD", req_2:"Ganas de participar en Campamentos de Facción", req_3:"Interés en mazmorras grupales y AVAs", req_4:"Actividad regular", req_5:"Buena comunicación por voz", req_6:"Mentalidad de equipo", req_7:"Ganas de aprender y mejorar", req_8:"Interés en Roaming, Gank y criaturas de Crystal",
+        how_to_join:"CÓMO UNIRTE", join_title:"🚀 ÚNETE A THETFOREVER", join_subtitle:"Entrar es sencillo. Nuestro Discord es el punto de encuentro para conocer el gremio y realizar tu aplicación.",
+        step1_title:"ENTRA AL DISCORD", step1_desc:"Únete a nuestro servidor y conoce la comunidad de THETFOREVER.", step2_title:"ABRE UN TICKET", step2_desc:"Utiliza nuestro sistema de tickets de Carl-bot para realizar tu aplicación.", step3_title:"CONOCE EL GREMIO", step3_desc:"Un reclutador revisará tu aplicación y podrás comenzar a participar en nuestras actividades.", enter_discord:"⚔️ ENTRAR AL DISCORD",
+        philosophy_title:"REPRESENTAR THETFORD. BUSCAR PELEAS. JUGAR JUNTOS.", philosophy_desc:"No buscamos simplemente llenar el gremio.<br><br>Buscamos jugadores que quieran participar en <strong>Guerra de Facciones, mazmorras grupales y AVAs</strong>, compartir actividades con el grupo y disfrutar de Albion Online.<br><br>Desde un Campamento de Facción hasta una salida de Gank o una pelea de Crystal, queremos jugar juntos y crear buen contenido.",
+        quote:"THETFORD ES NUESTRA FACCION. THETFOREVER ES NUESTRO GREMIO.", final_title:"¿TE GUSTA EL CONTENIDO DE THETFORD?",
+        final_desc:"Si disfrutas de la <strong>Guerra de Facciones, Campamentos, mazmorras grupales y AVAs</strong>, únete a <strong>THETFOREVER</strong>.<br><br>También hacemos <strong>Roaming, Gank y criaturas de Crystal</strong> para mantener siempre la acción.<br><br><strong>Entra a nuestro Discord, abre un ticket y conoce nuestra comunidad.</strong>",
+        join_discord_3:"⚔️ UNIRME AL DISCORD", watch_thetforever:"🔴 VER THETFOREVER EN TWITCH", footer:"THETFOREVER • THETFORD • GUERRA DE FACCIONES • ALBION ONLINE"
+      },
+      pt: {
+        title: "THETFOREVER | Guerra de Facções THETFORD | Albion Online",
+        description: "A THETFOREVER é uma guilda de THETFORD focada em Guerra de Facções, Acampamentos, masmorras em grupo e AVA no Albion Online. Entre no Discord e participe das nossas atividades.",
+        nav_content:"Conteúdo", nav_recruit:"Recrutamento", nav_discord:"Discord",
+        tagline:"GUERRA DE FACÇÕES • THETFORD • PVP",
+        hero_desc:"<strong>Guilda de THETFORD</strong> focada em <strong>Guerra de Facções e conteúdo PvP</strong> no Albion Online.<br><br>Participamos de <strong>Acampamentos de Facção, masmorras em grupo e AVA</strong>, além de fazer <strong>Roaming, Gank e conteúdo de criaturas de Crystal</strong>.",
+        join_discord:"⚔️ ENTRE NO DISCORD", watch_twitch:"🔴 ASSISTA À TWITCH", social_title:"ACOMPANHE NOSSO CONTEÚDO", discover:"CONHEÇA A THETFOREVER",
+        intro_title:"THETFORD É O NOSSO CAMPO DE BATALHA.",
+        intro_desc:"Na <strong>THETFOREVER</strong>, a <strong>Guerra de Facções de THETFORD</strong> é uma parte central do nosso conteúdo.<br><br>Participamos de <strong>Acampamentos de Facção, masmorras em grupo e AVA</strong>, sempre em busca de ação e jogando em equipe.<br><br>Também fazemos <strong>Roaming, Gank e atividades com criaturas de Crystal</strong>.<br><br><strong>Quer participar? Entre no nosso Discord e faça sua inscrição por ticket.</strong>",
+        our_content:"NOSSO CONTEÚDO", content_title:"⚔️ NOSSO CONTEÚDO", content_subtitle:"Guerra de Facções de THETFORD e atividades PvP para jogar, lutar e evoluir juntos.",
+        faction_title:"GUERRA DE FACÇÕES", faction_desc:"Representamos <strong>THETFORD</strong> e participamos ativamente das atividades de Facção.",
+        faction_1:"Guerra de Facções", faction_2:"Acampamentos de Facção", faction_3:"Combates PvP", faction_4:"Captura e defesa de objetivos", faction_5:"Roaming de Facção", faction_6:"Transmissões ao vivo na Twitch",
+        dungeons_title:"MASMORRAS EM GRUPO • AVA", dungeons_desc:"Organizamos masmorras em grupo e expedições Avalonian para ganhar fama, evoluir em equipe e aproveitar o conteúdo PvE.", dungeons_1:"Masmorras em grupo", dungeons_2:"Masmorras Avalonianas (AVA)", dungeons_3:"Grupos organizados", dungeons_4:"Coordenação e trabalho em equipe", dungeons_5:"Progressão e fama", dungeons_6:"Conteúdo PvE em grupo",
+        roaming_desc:"Fora da Facção, também saímos com a guilda em busca de ação.", crystal_creatures:"Criaturas de Crystal", pvp_fights:"Combates PvP", spontaneous:"Conteúdo espontâneo",
+        see_twitch:"ASSISTA À THETFOREVER NA TWITCH", twitch_title:"🔴 THETFOREVER NA TWITCH", twitch_subtitle:"Assista ao nosso conteúdo de Guerra de Facções de THETFORD ao vivo.",
+        live_title:"A AÇÃO DE THETFORD AO VIVO", live_desc:"Transmitimos nossas atividades de <strong>Guerra de Facções, Acampamentos, masmorras em grupo e AVA</strong> para você conhecer nosso estilo de jogo e fazer parte da comunidade.<br><br>Assista à live, conheça a <strong>THETFOREVER</strong> e depois <strong>entre no nosso Discord</strong>.",
+        watch_stream:"🔴 ASSISTIR À LIVE", join_discord_2:"⚔️ ENTRAR NO DISCORD", i_want_join:"QUERO PARTICIPAR",
+        recruit_title:"🎯 QUER LUTAR POR THETFORD?", recruit_subtitle:"Estamos procurando jogadores que queiram participar ativamente do nosso conteúdo PvP.",
+        req_1:"Interesse na Guerra de Facções de THETFORD", req_2:"Vontade de participar de Acampamentos de Facção", req_3:"Interesse em masmorras em grupo e AVA", req_4:"Atividade regular", req_5:"Boa comunicação por voz", req_6:"Espírito de equipe", req_7:"Vontade de aprender e evoluir", req_8:"Interesse em Roaming, Gank e criaturas de Crystal",
+        how_to_join:"COMO ENTRAR", join_title:"🚀 ENTRE NA THETFOREVER", join_subtitle:"É simples entrar. Nosso Discord é o ponto de encontro para conhecer a guilda e fazer sua inscrição.",
+        step1_title:"ENTRE NO DISCORD", step1_desc:"Entre no nosso servidor e conheça a comunidade THETFOREVER.", step2_title:"ABRA UM TICKET", step2_desc:"Use nosso sistema de tickets do Carl-bot para fazer sua inscrição.", step3_title:"CONHEÇA A GUILDA", step3_desc:"Um recrutador vai analisar sua inscrição e você poderá começar a participar das nossas atividades.", enter_discord:"⚔️ ENTRAR NO DISCORD",
+        philosophy_title:"REPRESENTAR THETFORD. BUSCAR COMBATES. JOGAR JUNTOS.", philosophy_desc:"Não queremos apenas encher a guilda.<br><br>Procuramos jogadores que queiram participar de <strong>Guerra de Facções, masmorras em grupo e AVA</strong>, compartilhar atividades com o grupo e curtir Albion Online.<br><br>De um Acampamento de Facção a uma saída de Gank ou um combate de Crystal, queremos jogar juntos e criar bons conteúdos.",
+        quote:"THETFORD É A NOSSA FACÇÃO. THETFOREVER É A NOSSA GUILDA.", final_title:"CURTE O CONTEÚDO DE THETFORD?",
+        final_desc:"Se você curte <strong>Guerra de Facções, Acampamentos, masmorras em grupo e AVA</strong>, venha para a <strong>THETFOREVER</strong>.<br><br>Também fazemos <strong>Roaming, Gank e atividades com criaturas de Crystal</strong> para manter a ação rolando.<br><br><strong>Entre no nosso Discord, abra um ticket e conheça a comunidade.</strong>",
+        join_discord_3:"⚔️ ENTRAR NO DISCORD", watch_thetforever:"🔴 ASSISTIR À THETFOREVER NA TWITCH", footer:"THETFOREVER • THETFORD • GUERRA DE FACÇÕES • ALBION ONLINE"
+      }
+    };
 
+    const languageButton = document.getElementById("language-toggle");
+
+    function setLanguage(language) {
+      const lang = language === "pt" ? "pt" : "es";
+      const dictionary = translations[lang];
+
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "es";
+      document.title = dictionary.title;
+
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute("content", dictionary.description);
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
+          // HTML is authored in this page's translation dictionary, so preserve strong tags and line breaks.
+          element.innerHTML = dictionary[key];
+        }
+      });
+
+      languageButton.textContent = lang === "es" ? "ES / PT-BR" : "PT-BR / ES";
+      languageButton.dataset.currentLanguage = lang;
+      languageButton.setAttribute("aria-label", lang === "es" ? "Cambiar idioma a portugués brasileño" : "Mudar idioma para espanhol");
+    }
+
+    const browserLanguage = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+    setLanguage(browserLanguage.toLowerCase().startsWith("pt") ? "pt" : "es");
+
+    languageButton.addEventListener("click", () => {
+      setLanguage(languageButton.dataset.currentLanguage === "es" ? "pt" : "es");
+    });
+  </script>
 </body>
 </html>
